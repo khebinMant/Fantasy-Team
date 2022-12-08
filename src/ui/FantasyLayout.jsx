@@ -6,7 +6,8 @@ export const FantasyLayout = ({children}) => {
   return (
     <div>
         <NavBar/>
-        <Footer/>
+        {children}
+        {/* <Footer/> */}
     </div>
   )
 }
