@@ -1,7 +1,10 @@
 import React from 'react'
+import { FantasyLayout } from '../ui/FantasyLayout'
 
 export const MainPage = () => {
   return (
-    <div>MainPage</div>
+    <FantasyLayout>
+      <div>MainPage</div>
+    </FantasyLayout>
   )
 }

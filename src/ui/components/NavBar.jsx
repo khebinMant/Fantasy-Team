@@ -1,7 +1,14 @@
 import React from 'react'
 import { Menubar } from 'primereact/menubar';
 import { InputText } from 'primereact/inputtext';
+import { useNavigate } from 'react-router-dom';
+import { startLogout } from '../../store/auth/thunks';
+import { useDispatch } from 'react-redux';
 export const NavBar = () => {
+
+  const navigation = useNavigate()
+  const dispatch =  useDispatch()
+  
   const items = [
     {
         label: 'File',
@@ -126,7 +133,10 @@ export const NavBar = () => {
     },
     {
         label: 'Quit',
-        icon: 'pi pi-fw pi-power-off'
+        icon: 'pi pi-fw pi-power-off',
+        command:()=> {
+            dispatch(startLogout());
+        }
     }
 ];
 
