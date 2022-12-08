@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Login } from '../components/Login'
 import { Register } from '../components/Register'
 import { SwitchLogin } from '../components/SwitchLogin.jsx'
@@ -7,11 +8,8 @@ import { AuthLayout } from '../layout/AuthLayout'
 
 export const LoginRegisterPage = () => {
 
-    const [isLogin, setIsLogin] = useState(true)
+    const { isLogin } = useSelector( state=> state.loginRegister )
 
-    const changeSwitch = ()=>{
-        setIsLogin(!isLogin)
-    }
 
   return (
         <AuthLayout>
@@ -19,13 +17,13 @@ export const LoginRegisterPage = () => {
                 isLogin
                 ?
                 <>
-                    <SwitchLogin isLogin changeSwitch={changeSwitch}/>
+                    <SwitchLogin />
                     <Login/>
                 </>
                 :
                 <> 
                     <Register/>
-                    <SwitchRegister isLogin changeSwitch={changeSwitch}/>
+                    <SwitchRegister />
                 </>
             }
         </AuthLayout>

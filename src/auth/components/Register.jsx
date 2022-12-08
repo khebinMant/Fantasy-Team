@@ -17,6 +17,7 @@ export const Register = () => {
   const dispatch = useDispatch();
 
   const { status, errorMessage } = useSelector((state) => state.auth);
+  
   const isCheckingAuthentication = useMemo(
     () => status === "checking",
     [errorMessage]
@@ -41,11 +42,15 @@ export const Register = () => {
       } else if (
         !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(data.email)
       ) {
-        errors.email = "Invalid email address. E.g. example@email.com";
+        errors.email = "Correo electrónico no válido. E.j. ejemplo@advice.com";
       }
 
       if (!data.password) {
         errors.password = "Contraseña es obligatoria.";
+      } else if(
+        !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/.test(data.password)
+      ){
+        errors.password = "Debe incluir mínimo 8 caracteres 1 número y 1 letra en mayúscula/minúscula."
       }
 
       if (!data.accept) {
@@ -85,16 +90,17 @@ export const Register = () => {
       />
     </div>
   );
-  const passwordHeader = <h6>Pick a password</h6>;
+  const passwordHeader = <h6>Elegi tu Contraseña</h6>;
   const passwordFooter = (
     <>
       <Divider />
-      <p className="mt-2">Suggestions</p>
+      <p className="mt-2">Recomendaciones</p>
       <ul className="pl-2 ml-2 mt-0" style={{ lineHeight: "1.5" }}>
-        <li>At least one lowercase</li>
-        <li>At least one uppercase</li>
-        <li>At least one numeric</li>
-        <li>Minimum 8 characters</li>
+        <li>Al menos una letra en mayúscula</li>
+        <li>Al menos una letra en minúscula</li>
+        <li>Al menos un número</li>
+        <li>No debe incluir caracteres especiales</li>
+        <li>Mínimo de 8 caracteres</li>
       </ul>
     </>
   );
@@ -224,6 +230,7 @@ export const Register = () => {
               style={{
                 display: `${!!errorMessage ? "" : "none"}`,
                 marginBottom: "10px",
+                marginTop: "10px",
               }}
             />
             <Button

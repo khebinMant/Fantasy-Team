@@ -1,7 +1,16 @@
 import { Button } from 'primereact/button';
+import { useDispatch } from 'react-redux';
 import wave from '../../assets/waves.png'
-export const SwitchLogin = ({isLogin, changeSwitch}) => {
+import { toggleLoginRegister } from '../../store/loginregister/loginRegisterSlice';
+import { setInitialState } from '../../store/auth/authSlice';
+export const SwitchLogin = () => {
     
+    const dispatch = useDispatch()
+
+    const handleClick = ()=>{
+        dispatch(toggleLoginRegister())
+        dispatch(setInitialState())
+    }
 
     return (
         
@@ -18,9 +27,9 @@ export const SwitchLogin = ({isLogin, changeSwitch}) => {
                         </div>
                         <img className='wave-right' src={wave} alt="waves"/>
                         <Button
-                            label="Registrarse" 
+                            label="Registrate" 
                             className="p-button-success singupbtn" 
-                            onClick={changeSwitch}
+                            onClick={handleClick}
                         />
                     </div>
                 </div>

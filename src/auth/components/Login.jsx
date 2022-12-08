@@ -35,15 +35,15 @@ export const Login = () => {
       let errors = {};
 
       if (!data.email) {
-        errors.email = "Email is required.";
+        errors.email = "Correo electrónico es obligatorio.";
       } else if (
         !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(data.email)
       ) {
-        errors.email = "Invalid email address. E.g. example@email.com";
+        errors.email = "Correo electrónico no válido. E.j. ejemplo@advice.com";
       }
 
       if (!data.password) {
-        errors.password = "Password is required.";
+        errors.password = "Contraseña es obligatoria.";
       }
 
       return errors;
@@ -106,7 +106,7 @@ export const Login = () => {
 
       <div className="flex justify-content-center">
         <div className="card">
-          <h5 className="text-center">Login</h5>
+          <h5 className="text-center">Iniciar Sesión</h5>
           <form onSubmit={formik.handleSubmit} className="p-fluid">
             <div className="field">
               <span className="p-float-label p-input-icon-right">
@@ -126,7 +126,7 @@ export const Login = () => {
                     "p-error": isFormFieldValid("email"),
                   })}
                 >
-                  Email*
+                  Correo electrónico*
                 </label>
               </span>
               {getFormErrorMessage("email")}
@@ -139,6 +139,7 @@ export const Login = () => {
                   value={formik.values.password}
                   onChange={formik.handleChange}
                   toggleMask
+                  feedback={false} 
                   className={classNames({
                     "p-invalid": isFormFieldValid("password"),
                   })}
