@@ -8,7 +8,10 @@ const Card = ({ title, children, back }) => {
           {children}
           <div className="products-txt">{title}</div>
         </div>
-        <div className="back">{back}</div>
+        <div className="back">
+          <h3>Team :</h3>
+          {back}
+        </div>
       </div>
     </div>
   );
