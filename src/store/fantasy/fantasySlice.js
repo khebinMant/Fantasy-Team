@@ -9,15 +9,15 @@ export const fantasySlice = createSlice({
                 name:null,
                 creationDate:null,
                 players:[
-                    {
-                        player_key:'',//id
-                        player_name:'',
-                        player_number:'',//numero de camiseta
-                        player_country:'',//pais
-                        player_age:'',//edad
-                        player_injured:'',//lesionado
-                        player_image:''//url de la imagne del jugador
-                    }
+                    // {
+                    //     player_key:'',//id
+                    //     player_name:'',
+                    //     player_number:'',//numero de camiseta
+                    //     player_country:'',//pais
+                    //     player_age:'',//edad
+                    //     player_injured:'',//lesionado
+                    //     player_image:''//url de la imagne del jugador
+                    // }
                 ],
                 captain:null,//id del jugador ,
                 rating:null,
