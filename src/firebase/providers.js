@@ -7,12 +7,11 @@ export const signInWithGoogle =  async()=>{
 
     try{
         const result = await signInWithPopup(FirebaseAuth, googleProvider);
-        // const credentials =  GoogleAuthProvider.credentialFromResult( result );
         const { displayName, email, photoURL, uid } =  result.user;
 
         return{
             ok:true,
-            //User info
+            //User nfo
             displayName,
             email,
             photoURL,
@@ -22,8 +21,7 @@ export const signInWithGoogle =  async()=>{
     }catch(error){
         const errorCode = error.code;
         const errorMessage = error.message;
-        // const email =  error.customData.email
-        // const credential = GoogleAuthProvider.credentialFromError(error) 
+
         return{
             ok:false,
             errorMessage
@@ -37,8 +35,6 @@ export const registerUserWithEmailPassword = async( {email, password, displayNam
        const resp = await createUserWithEmailAndPassword(FirebaseAuth, email, password);
        const { uid, photoURL  } = resp.user
 
-        //Aqui estoy actualizando el displayname del usuario actual
-        //En FireBaseAuth.currentUser  obtengo al usuario actual
         await updateProfile( FirebaseAuth.currentUser, { displayName } );
 
        return{
@@ -48,7 +44,6 @@ export const registerUserWithEmailPassword = async( {email, password, displayNam
 
     }
     catch(error){
-        // console.log(error)
         const errorMessage = error.message;
         return { ok: false, errorMessage }
     }
@@ -69,7 +64,6 @@ export const loginWithEmailPassword = async({ email, password })=>{
         }
     }
     catch(error){
-        // console.log(error)
         const errorMessage = error.message;
         return { ok: false, errorMessage }
     }
