@@ -1,13 +1,13 @@
-import React from 'react'
-import { Footer } from './components/Footer'
-import { NavBar } from './components/NavBar'
+import React from "react";
+import { Footer } from "./components/Footer";
+import { NavBar } from "./components/NavBar";
 
-export const FantasyLayout = ({children}) => {
+export const FantasyLayout = ({ children }) => {
   return (
     <div>
         <NavBar/>
         {children}
         {/* <Footer/> */}
     </div>
-  )
-}
+  );
+};

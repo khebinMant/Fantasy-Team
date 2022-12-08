@@ -1,26 +1,35 @@
-import React, { useEffect } from 'react'
-import { openDotaApi } from '../../api/openDotaApi';
-import { FantasyLayout } from '../../ui/FantasyLayout'
-import { TeamsList } from './components/TeamsList';
-import '../../styles/MainPage.css'
+import { useEffect, useState } from "react";
+import axios from "axios";
+import PlayerCard from "../../ui/components/PlayerCard/PlayerCard";
+import { FantasyLayout } from "../../ui/FantasyLayout";
 
 export const MainPage = () => {
-  
-  // useEffect(() => {
-  //   getRandomProPlayers()
-  // }, []);
+  const [players, setplayers] = useState();
+  const [result, setResult] = useState();
 
-  const getRandomProPlayers = async ()=>{
-    const {data} = await openDotaApi.get(`https://api.opendota.com/api/proPlayers`)
-    console.log(data)
-  }
+  const options = {
+    method: "GET",
+    url: "https://api.opendota.com/api/proPlayers",
+  };
+  const currentPage = "https://api.opendota.com/api/proPlayers";
+
+  useEffect(() => {
+    try {
+      axios.get(currentPage).then((response) => {
+        setResult(response.data);
+        console.log(response.data);
+      });
+    } catch (e) {
+      alert(e.message);
+      return;
+    }
+  }, []);
 
   return (
     <FantasyLayout>
-      <div>
-        {/* <PlayerCards/> */}
-        <TeamsList/>
-      </div>
+    <div>
+      <PlayerCard data={result} />
+    </div>
     </FantasyLayout>
-  )
-}
+  );
+};

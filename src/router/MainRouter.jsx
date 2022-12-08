@@ -6,6 +6,7 @@ import { LoginRegisterPage } from '../auth/pages/LoginRegisterPage';
 import { CheckingAuth } from "../components/CheckingAuth";
 import { useCheckOut } from "../hooks/useCheckout";
 import { MainPage } from "../pages/Main/MainPage";
+import { FantasyLayout } from "../ui/FantasyLayout";
 
 export const MainRouter = () => {
 
@@ -16,16 +17,16 @@ export const MainRouter = () => {
     }
 
   return (
-        <Routes>
-            {     
-                status === 'authenticated'
-                ?  
-                <Route path='/*' element={<MainPage/>}/>
-                :
-                <Route path='/auth/' element={<LoginRegisterPage/>}/>
-            }
-            <Route path='/*' element={<Navigate to='/auth/'/> }/>
+            <Routes>
+                {     
+                    status === 'authenticated'
+                    ?  
+                    <Route path='/*' element={<MainPage/>}/>
+                    :
+                    <Route path='/auth/' element={<LoginRegisterPage/>}/>
+                }
+                <Route path='/*' element={<Navigate to='/auth/'/> }/>
 
-        </Routes>
+            </Routes>
     )
 }
