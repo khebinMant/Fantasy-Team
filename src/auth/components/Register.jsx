@@ -236,7 +236,7 @@ export const Register = () => {
             <Button
                 disabled={isCheckingAuthentication}
                 type="submit"
-                label="Submit"
+                label="Registrarse"
                 style={{
                 marginTop: "15px",
               }}
