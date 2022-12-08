@@ -10,14 +10,18 @@ import { classNames } from "primereact/utils";
 import { useDispatch, useSelector } from "react-redux";
 import { startCreatingUserWithEmailPassword } from "../../store/auth/thunks";
 import { Message } from "primereact/message";
+import { toggleLoginRegister } from "../../store/loginregister/loginRegisterSlice";
+import { setCorrectRegister, setIncorrectRegister } from "../../store/auth/authSlice";
 
 export const Register = () => {
   const [showMessage, setShowMessage] = useState(false);
   const [formData, setFormData] = useState({});
   const dispatch = useDispatch();
 
-  const { status, errorMessage } = useSelector((state) => state.auth);
+  const { status, errorMessage, correctRegister } = useSelector((state) => state.auth);
   
+
+
   const isCheckingAuthentication = useMemo(
     () => status === "checking",
     [errorMessage]
@@ -28,7 +32,7 @@ export const Register = () => {
       displayName: "",
       email: "",
       password: "",
-      accept: false,
+      accept: false
     },
     validate: (data) => {
       let errors = {};
@@ -61,12 +65,14 @@ export const Register = () => {
     },
     onSubmit: (data) => {
       setFormData(data);
-      setShowMessage(true);
       const { email, password, displayName } = data;
-      dispatch(
-        startCreatingUserWithEmailPassword({ email, password, displayName })
-      );
-      formik.resetForm();
+      dispatch( startCreatingUserWithEmailPassword({ email, password, displayName }));
+      if( correctRegister ){
+        setShowMessage(true);
+      }
+      else{
+        formik.resetForm();
+      }
     },
   });
 
@@ -80,13 +86,25 @@ export const Register = () => {
     );
   };
 
+  const closeDialog = ()=>{
+    if(correctRegister){
+      setShowMessage(false)
+      dispatch(toggleLoginRegister())
+      dispatch(setIncorrectRegister())
+      formik.resetForm();
+    }
+    else{
+      setShowMessage(false)
+    }
+  }
+
   const dialogFooter = (
     <div className="flex justify-content-center">
       <Button
         label="OK"
         className="p-button-text"
         autoFocus
-        onClick={() => setShowMessage(false)}
+        onClick={closeDialog}
       />
     </div>
   );
@@ -109,7 +127,6 @@ export const Register = () => {
     <div className="form animate__animated animate__fadeInDown">
       <Dialog
         visible={showMessage}
-        onHis={() => setShowMessage(false)}
         position="top"
         footer={dialogFooter}
         showHeader={false}
@@ -121,12 +138,9 @@ export const Register = () => {
             className="pi pi-check-circle"
             style={{ fontSize: "5rem", color: "var(--green-500)" }}
           ></i>
-          <h5>Registration Successful!</h5>
-          <p style={{ lineHeight: 1.5, textIndent: "1rem" }}>
-            Your account is registered under name <b>{formData.name}</b> ; it'll
-            be valid next 30 days without activation. Please check{" "}
-            <b>{formData.email}</b> for activation instructions.
-          </p>
+              <h2 style={{ textAlign:'center'}}>¡Tu cuenta ha sido creada!</h2>
+              <h1 style={{textAlign:'center'}}> 😎😎 </h1>
+              <h3 style={{textAlign:'center'}}>Ahora inicia sesión</h3>
         </div>
       </Dialog>
 
@@ -226,9 +240,9 @@ export const Register = () => {
             </div>
             <Message
               severity="error"
-              text={errorMessage}
+              text="Correo electrónico ya esta en uso"
               style={{
-                display: `${!!errorMessage ? "" : "none"}`,
+                display: `${errorMessage? "" : "none"}`,
                 marginBottom: "10px",
                 marginTop: "10px",
               }}

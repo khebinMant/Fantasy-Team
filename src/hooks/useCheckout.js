@@ -9,13 +9,15 @@ export const useCheckOut = () => {
     const { status } = useSelector( state => state.auth );
     const dispatch = useDispatch()
   
+
     useEffect(() => {
       onAuthStateChanged( FirebaseAuth, async( user ) =>{
-        if(!user)return dispatch(logout())
-
+        if(!user || status==='not-authenticated'){
+          return dispatch(logout())
+        }
         const {uid, email, displayName, photoURL} = user
         dispatch(login({uid, email, displayName, photoURL}))
-        // dispatch( startLoadingNotes() );
+        // dispatch( startLoadingNotes() )
       } )
     }, []);
   

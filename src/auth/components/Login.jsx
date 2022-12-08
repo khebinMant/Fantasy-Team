@@ -16,7 +16,6 @@ import { useDispatch, useSelector } from "react-redux";
 export const Login = () => {
   const { status, errorMessage } = useSelector((state) => state.auth);
 
-  const [showMessage, setShowMessage] = useState(false);
   const [formData, setFormData] = useState({});
   const dispatch = useDispatch();
 
@@ -51,7 +50,7 @@ export const Login = () => {
     onSubmit: (data) => {
       setFormData(data);
       const { email, password } = data;
-      setShowMessage(true);
+      // setShowMessage(true);
       formik.resetForm();
       dispatch(startLoginWithEmailPassword({ email, password }));
     },
@@ -67,43 +66,10 @@ export const Login = () => {
     );
   };
 
-  const dialogFooter = (
-    <div className="flex justify-content-center">
-      <Button
-        label="OK"
-        className="p-button-text"
-        autoFocus
-        onClick={() => setShowMessage(false)}
-      />
-    </div>
-  );
 
 
   return (
     <div className="form animate__animated animate__fadeInDown">
-      <Dialog
-        visible={showMessage}
-        onHis={() => setShowMessage(false)}
-        position="top"
-        footer={dialogFooter}
-        showHeader={false}
-        breakpoints={{ "960px": "80vw" }}
-        style={{ width: "30vw" }}
-      >
-        <div className="flex align-items-center flex-column pt-6 px-3">
-          <i
-            className="pi pi-check-circle"
-            style={{ fontSize: "5rem", color: "var(--green-500)" }}
-          ></i>
-          <h5>Registration Successful!</h5>
-          <p style={{ lineHeight: 1.5, textIndent: "1rem" }}>
-            Your account is registered under name <b>{formData.name}</b> ; it'll
-            be valid next 30 days without activation. Please check{" "}
-            <b>{formData.email}</b> for activation instructions.
-          </p>
-        </div>
-      </Dialog>
-
       <div className="flex justify-content-center">
         <div className="card">
           <h5 className="text-center">Iniciar Sesión</h5>
