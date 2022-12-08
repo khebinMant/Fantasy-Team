@@ -1,0 +1,25 @@
+.tableContainer{
+    
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,118,1) 35%, rgba(0,212,255,1) 100%);
+    border-radius: 20px;
+    width: 250px;
+    padding: 5px 10px;
+    border: solid 2px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100px;
+}
+.tableContainer>h4{
+    align-self: center;
+}
+.player-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.shirt{
+    height: 25px;
+    width: 25px;
+}
