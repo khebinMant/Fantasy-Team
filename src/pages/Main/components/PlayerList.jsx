@@ -4,6 +4,11 @@ import useDrag from "../../../hooks/useDrag";
 import Card from "./PlayerCard";
 import '../../../styles/MainPage.css'
 
+const playerIds =[
+  
+]
+
+
 export const PlayerList = () => {
 
   const { dragStart, dragStop, dragMove, onWheel } = useDrag();
