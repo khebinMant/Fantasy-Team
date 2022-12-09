@@ -1,0 +1,19 @@
+.estadio{
+    width: 200px;
+    height: 150px;
+    border-radius: 25px;
+}
+.skill-bar>h6{
+    margin-bottom: 0;
+}
+.stadium-row-info{
+    display: flex;
+    flex-direction: row;
+    width: 280px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stadium-row-info>div{
+    font-size: 12px;
+}

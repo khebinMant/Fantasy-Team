@@ -1,0 +1,99 @@
+.infoContainer{
+    height: 350px;
+    width: 600px;
+    background-color: #fff;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    box-shadow: 5px 5px 10px rgba(15, 165, 47, 0.5);
+}
+
+.infoContainer>div>h4{
+    color: black;
+}
+
+.data>div{
+    color: black;
+}
+
+.skill-bar{
+    width: 300px;
+    padding: 25px 30px;
+    color: black;
+}
+
+.skill-bar .bar{
+    margin: 20px 0;
+}
+
+.skill-bar .bar .info{
+    margin-bottom: 5px;
+}
+
+.skill-bar .bar:first-child{
+    margin-top: 0;
+}
+
+.skill-bar .bar .info span{
+    font-size: 17px;
+    font-weight: 500;
+    opacity: 0;
+    animation: showText 0.5s 1s linear forwards;
+}
+
+@keyframes showText {
+    100%{
+        opacity: 1;
+    }
+}
+
+.skill-bar .bar .progress-line{
+    position: relative;
+    height: 10px;
+    width: 100%;
+    background: #f0f0f0;
+    border-radius: 10px;
+    transform: scaleX(0);
+    transform-origin: left;
+    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.05),0px 1px  rgba(255,255,255,0.8);
+    animation: animate 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+
+.bar .progress-line span{
+    height: 100%;
+    width: 80%;
+    background: #6665ee;
+    position: absolute;
+    border-radius: 10px;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+
+@keyframes animate {
+    100%{
+        transform: scaleX(1);
+    }
+    
+}
+
+@keyframes showText2 {
+    100%{
+        opacity: 1;
+    }
+}
+
+.info>span{
+    color: #000;
+}
+
+@media only screen and (max-width:600px) {
+    .infoContainer{
+        width: 350px;
+        padding: 10px;
+    }
+    .skill-bar{
+        width: 250px;
+    }
+}
