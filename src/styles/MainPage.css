@@ -58,6 +58,18 @@
 .image-card{
     width: 150px;
     height: 100px;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+    cursor: pointer;
 }
 .card-container:hover .card{
     transform: rotateY(-180deg);
@@ -76,6 +88,18 @@
     transform: rotateY(-180deg);
     text-align: center;
     opacity: 85%;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+    cursor: pointer;
 }
 .front, .back{
     margin: 0px 5px;
@@ -86,9 +110,9 @@
     align-items: center;
     justify-content: center;
     backface-visibility: hidden;
-    -webkit-box-shadow: 10px 11px 37px -6px rgba(134,239,172,1);
-    -moz-box-shadow: 10px 11px 37px -6px rgba(134,239,172,1);
-    box-shadow: 10px 11px 37px -6px rgba(134,239,172,1);
+    -webkit-box-shadow: 10px 11px 17px -6px rgba(134,239,172,1);
+    -moz-box-shadow: 10px 11px 17px -6px rgba(134,239,172,1);
+    box-shadow: 10px 11px 17px -6px rgba(134,239,172,1);
     border:2px solid #eee;
     transition: 1.5s ease-in-out;
     display: flex;

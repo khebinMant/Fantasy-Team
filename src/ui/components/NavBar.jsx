@@ -70,21 +70,22 @@ export const NavBar = () => {
     const start = <>
         <img alt="logo" src={balon} onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} height="40" className="mr-2"></img>
     </>
-    const end = <>
+    const end = <div className='something'>
         <InputText className='search-input' placeholder="Buscar" type="text" />
         <Menu model={itemsLog} popup ref={menu} id="popup_menu" />
-    </>
-
-    return (
-        <div>
-            <div className="card">
-                <Menubar model={items} start={start} end={end} />
-                <Avatar
+        <Avatar
                     onClick={(event) => menu.current.toggle(event)} 
                     image='https://cdn-icons-png.flaticon.com/512/219/219983.png'
                     className="user-avatar" size="circle" 
                     shape="circle" 
                 />
+    </div>
+
+    return (
+        <div>
+            <div className="card">
+                <Menubar className='nav-bar' model={items} start={start} end={end} />
+
             </div>
         </div>
     );
