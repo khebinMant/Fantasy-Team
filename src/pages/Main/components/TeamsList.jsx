@@ -13,6 +13,8 @@ export const TeamsList = () => {
   }
 
   return (
-    <div>Teams</div>
+    <div>
+      TeamsList
+    </div>
   )
 }

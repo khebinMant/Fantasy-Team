@@ -33,6 +33,7 @@ export const NavBar = () => {
     {
         label: 'Inicio',
         icon: 'pi pi-fw pi-home',
+        command:()=> {navigation('/')}
     },
     {
         label: 'Explorar',
@@ -55,10 +56,12 @@ export const NavBar = () => {
     {
         label: 'Fantasy Teams',
         icon: 'pi pi-fw pi-star',
+        command:()=> {navigation('/create-fantasy')}
     },
     {
         label: 'Crear',
         icon: 'pi pi-fw pi-bolt',
+        command:()=> {navigation('/create-fantasy')}
     }
 ];
 

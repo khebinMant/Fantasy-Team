@@ -1,0 +1,12 @@
+.main-content{
+    margin: 0px 40px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+.player-list-contetn{
+    display: flex;
+    flex-direction: row;
+}

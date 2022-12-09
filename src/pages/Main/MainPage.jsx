@@ -3,6 +3,10 @@ import axios from "axios";
 import PlayerCard from "../../ui/components/PlayerCard/PlayerCard";
 import { FantasyLayout } from "../../ui/FantasyLayout";
 import { TeamsList } from "./components/TeamsList";
+import { PlayerList } from "./components/PlayerList";
+import { LeaguesList } from "./components/LeaguesList";
+import '../../styles/MainPage.css'
+
 
 export const MainPage = () => {
   const [players, setplayers] = useState();
@@ -28,10 +32,12 @@ export const MainPage = () => {
 
   return (
     <FantasyLayout>
-    <div>
-      {/* <PlayerCard data={result} /> */}
-      <TeamsList/>
-    </div>
+      <div className="main-content">
+        {/* <PlayerCard data={result} /> */}
+        <LeaguesList/>
+        <PlayerList/>
+        <TeamsList/>
+      </div>
     </FantasyLayout>
   );
 };

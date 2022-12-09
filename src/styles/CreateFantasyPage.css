@@ -1,0 +1,31 @@
+.form .card {
+    min-width: 450px;
+}
+.form .card form {
+    margin-top: 2rem;
+}
+.form .card .field {
+    margin-bottom: 1.5rem;
+}
+.form{
+    margin-top: 50px;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+@media screen and (max-width: 960px) {
+    .form .card {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 640px) {
+    .login-register-content{
+        flex-direction: column;
+    }
+    .form .card {
+        width: 100%;
+        min-width: 0;
+    }
+}
