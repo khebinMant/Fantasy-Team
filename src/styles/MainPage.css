@@ -6,7 +6,10 @@
     justify-content: space-between;
     align-items: flex-start;
 }
-
+.card-gallery-skeleton{
+    display: flex;
+    flex-direction: row;
+}
 .players-gallery{
     padding-top: 50px;
     display:grid;
@@ -97,7 +100,7 @@
 
 .products-txt{
     text-align: center;
-    color: #5EEAD4;
+    color: #ffffff;
     font-weight: bold;
     font-size: 17px;
     margin-top: 15px;

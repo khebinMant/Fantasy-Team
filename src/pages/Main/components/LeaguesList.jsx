@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getCustomLeagues } from "../../../helpers/getCustomLeagues";
+import { getLeague } from "../../../helpers/getLeague";
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import { Box } from "@mui/material";
 
@@ -32,7 +32,7 @@ export const LeaguesList = () => {
 
   
     for(const leagueId of leaguesIds){
-      leaguesPromises.push( getCustomLeagues(leagueId) )
+      leaguesPromises.push( getLeague(leagueId) )
     }
     const responses =  await Promise.all( leaguesPromises );
     setLeagues(responses)
@@ -49,7 +49,8 @@ export const LeaguesList = () => {
       <p>Estoy cargando</p>
       </>
       :
-      <Box>
+      <Box style={{marginBottom:'50px'}}>
+        <h1>Ligas del mundo</h1>
         <div className="players-gallery">
           <div className="test" onMouseLeave={dragStop}>
             <ScrollMenu
@@ -70,7 +71,6 @@ export const LeaguesList = () => {
         </div>
       </Box>
     }
-
     </Box>
   )
 }

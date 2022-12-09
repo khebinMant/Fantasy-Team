@@ -9,14 +9,11 @@ export const MainPage = () => {
   return (
     <FantasyLayout>
       <div className="main-content">
-        {/* <PlayerCard data={result} /> */}
         <PlayerList/>
         <br/>
-        {/* <TeamsList/> */}
+        <TeamsList/>
         <br/>
-        {/* <LeaguesList/> */}
-        <br/>
-        <br/>
+        <LeaguesList/>
         <br/>
       </div>
     </FantasyLayout>

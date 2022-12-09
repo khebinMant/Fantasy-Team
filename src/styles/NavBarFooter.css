@@ -1,0 +1,11 @@
+.user-avatar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px 5px;
+    width: 40px;
+    height: 40px;
+}
+.search-input{
+    margin-right: 50px;
+}

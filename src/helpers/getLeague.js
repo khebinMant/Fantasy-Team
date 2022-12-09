@@ -1,9 +1,9 @@
 import { sportDBApi } from "../api/sportDBApi"
 
-export const getCustomTeams = async (teamId)=>{
+export const getLeague = async (leagueId)=>{
     try{
 
-        const resp = await sportDBApi.get(`/lookupteam.php?id=${teamId}`)
+        const resp = await sportDBApi.get(`/lookupleague.php?id=${leagueId}`)
         return resp.data
 
     }catch(error){

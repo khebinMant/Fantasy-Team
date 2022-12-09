@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { getCustomTeams } from "../../../helpers/getCustomTeam";
+import { getTeam } from "../../../helpers/getTeam";
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import { Box } from "@mui/material";
 
 import useDrag from "../../../hooks/useDrag";
 import Card from "./TeamCard";
 
-const leaguesIds =[
+const teamsIds =[
   138219,138227,138225,138159,   //EC
   140079,136050,134153,134146,134794, //USA  
   133604,133615,133619,133610,133602, 133613, 133612, 133616, 133601, //EN
@@ -44,8 +44,8 @@ export const TeamsList = () => {
     const teamsPromises = [];
 
   
-    for(const teamId of leaguesIds){
-      teamsPromises.push( getCustomTeams(teamId) )
+    for(const teamId of teamsIds){
+      teamsPromises.push( getTeam(teamId) )
     }
     const responses =  await Promise.all( teamsPromises );
     setTeams(responses)
@@ -62,7 +62,8 @@ export const TeamsList = () => {
       <p>Estoy cargando</p>
       </>
       :
-      <Box>
+      <Box style={{marginBottom:'50px'}}>
+        <h1>Equipos</h1>
         <div className="players-gallery">
           <div className="test" onMouseLeave={dragStop}>
             <ScrollMenu
