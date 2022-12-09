@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import PlayerCard from '../../ui/components/PlayerCard/PlayerCard';
 import { FantasyLayout } from '../../ui/FantasyLayout';
 
 export const FantasyTeamsPage = () => {
@@ -26,7 +25,7 @@ export const FantasyTeamsPage = () => {
 
   return (
     <FantasyLayout>
-         <PlayerCard data={result} />
+         {/* <PlayerCard data={result} /> */}
     </FantasyLayout>
   )
 }

@@ -12,14 +12,12 @@ export const MainPage = () => {
         {/* <PlayerCard data={result} /> */}
         <PlayerList/>
         <br/>
-        <PlayerList/>
+        {/* <TeamsList/> */}
         <br/>
-        <PlayerList/>
+        {/* <LeaguesList/> */}
         <br/>
         <br/>
         <br/>
-        {/* <LeaguesList/>
-        <TeamsList/> */}
       </div>
     </FantasyLayout>
   );

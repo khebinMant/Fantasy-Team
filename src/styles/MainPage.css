@@ -53,11 +53,12 @@
     border-radius: 25px; 
 }
 .image-card{
-    width: 100px;
+    width: 150px;
     height: 100px;
 }
 .card-container:hover .card{
     transform: rotateY(-180deg);
+
     top:30px;
     right: 25px;
     width: 90%;
@@ -71,7 +72,7 @@
 .back{
     transform: rotateY(-180deg);
     text-align: center;
-    background-color:transparent;
+    opacity: 85%;
 }
 .front, .back{
     margin: 0px 5px;
@@ -95,7 +96,8 @@
 }
 
 .products-txt{
-    color: rgba(9,121,118,1);
+    text-align: center;
+    color: #5EEAD4;
     font-weight: bold;
     font-size: 17px;
     margin-top: 15px;

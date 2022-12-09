@@ -1,12 +1,13 @@
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import Box from "@mui/material/Box";
 import useDrag from "../../../hooks/useDrag";
-import Card from "../../../ui/components/PlayerCard/Card";
+import Card from "./PlayerCard";
 import '../../../styles/MainPage.css'
 
 export const PlayerList = () => {
 
-  const { dragStart, dragStop, dragMove } = useDrag();
+  const { dragStart, dragStop, dragMove, onWheel } = useDrag();
+  const n = 12;
 
   const handleDrag =
     ({ scrollContainer }) =>
@@ -15,23 +16,8 @@ export const PlayerList = () => {
         if (scrollContainer.current) {
           scrollContainer.current.scrollLeft += posDiff;
         }
-      });
+  });
 
-  const  onWheel = (apiObj, ev) =>   {
-    const isThouchpad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15;
-
-    if (isThouchpad) {
-      ev.stopPropagation();
-      return;
-    }
-
-    if (ev.deltaY < 0) {
-      apiObj.scrollNext();
-    } else if (ev.deltaY > 0) {
-      apiObj.scrollPrev();
-    }
-  }
-  const n = 12;
 
   return (
     <Box className="player-list-content">

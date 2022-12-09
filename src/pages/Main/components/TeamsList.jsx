@@ -1,20 +1,89 @@
-import { useEffect } from "react";
-import { openFootballApi } from "../../../api/openFootballApi";
+import { useEffect, useState } from "react";
+import { getCustomTeams } from "../../../helpers/getCustomTeam";
+import { ScrollMenu } from "react-horizontal-scrolling-menu";
+import { Box } from "@mui/material";
+
+import useDrag from "../../../hooks/useDrag";
+import Card from "./TeamCard";
+
+const leaguesIds =[
+  138219,138227,138225,138159,   //EC
+  140079,136050,134153,134146,134794, //USA  
+  133604,133615,133619,133610,133602, 133613, 133612, 133616, 133601, //EN
+  133714,133823,133822,133707,133719,133715, //FR
+  133664,133650,133653,133814,134690, //GER
+  133670,133667,133676,133668,133682, //ITA
+  133729,133739,133738,133735,133740,133725,133730,//ESP,
+  134296,134286,134291,134287,134284,136186,// BRA
+  135156,135160,135164,135165,135171,135179, //AR
+  133772,133758,133768,//DT
+  134307,133898,133890 //DNS
+]
+
 
 export const TeamsList = () => {
+
+  const { dragStart, dragStop, dragMove, onWheel } = useDrag();
+  const [teams, setTeams] = useState()
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     getRandomTeams()
   }, []);
 
+  const handleDrag = ({ scrollContainer }) => (ev) =>
+        dragMove(ev, (posDiff) => {
+          if (scrollContainer.current) {
+            scrollContainer.current.scrollLeft += posDiff;
+          }
+    });
+
+
   const getRandomTeams = async ()=>{
-    const {data} = await openFootballApi.get()
-    console.log(data)
+    
+    const teamsPromises = [];
+
+  
+    for(const teamId of leaguesIds){
+      teamsPromises.push( getCustomTeams(teamId) )
+    }
+    const responses =  await Promise.all( teamsPromises );
+    setTeams(responses)
+    setIsLoading(false)
+    console.log(responses)
+
   }
 
   return (
-    <div>
-      TeamsList
-    </div>
+    <Box className="player-list-content">
+    {
+      isLoading?
+      <>
+      <p>Estoy cargando</p>
+      </>
+      :
+      <Box>
+        <div className="players-gallery">
+          <div className="test" onMouseLeave={dragStop}>
+            <ScrollMenu
+              onWheel={onWheel}
+              onMouseDown={() => dragStart}
+              onMouseUp={() => dragStop}
+              onMouseMove={handleDrag}
+            >
+              {
+                teams.map(({teams},index) => (
+                <Card {...teams[0]}  key={index} className="card-container" title={teams[0].strAlternate} back="atras">
+                  <img alt="porelmomento" src={teams[0].strTeamBadge} className="image-card" />
+                </Card>
+                ))
+              }
+            </ScrollMenu>
+          </div>
+        </div>
+      </Box>
+    }
+
+    </Box>
   )
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Dropdown } from "primereact/dropdown";
 import { Image } from "primereact/image";
-import Card from "./Card";
+import Card from "../../../pages/Main/components/PlayerCard";
 import "./PlayerCard.css";
 import { IoIosAddCircle } from "react-icons/io";
 import PlayersTable from "../PlayersTable/PlayersTable";
