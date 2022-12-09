@@ -56,7 +56,7 @@ export const NavBar = () => {
     {
         label: 'Fantasy Teams',
         icon: 'pi pi-fw pi-star',
-        command:()=> {navigation('/create-fantasy')}
+        command:()=> {navigation('/fantasy-teams')}
     },
     {
         label: 'Crear',

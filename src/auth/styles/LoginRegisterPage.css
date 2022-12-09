@@ -1,4 +1,7 @@
 .auth-content{
+    background-image: linear-gradient(rgba(62, 63, 63, 0.5), rgba(3, 12, 2, 0.5)),
+    url("../../assets/back.png");
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,7 +71,7 @@
     justify-content:space-around ;
 }
 .back{
-    position: absolute;;
+    position: absolute;
     width: 95%;
     height: 100%;
     top: -20px;
