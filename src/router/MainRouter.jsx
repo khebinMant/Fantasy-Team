@@ -5,7 +5,7 @@ import { Navigate, Route, Routes } from "react-router-dom"
 import { LoginRegisterPage } from '../auth/pages/LoginRegisterPage';
 import { CheckingAuth } from "../components/CheckingAuth";
 import { useCheckOut } from "../hooks/useCheckout";
-import { CreateFantasyTeamPage } from "../pages/CreateFantasyTeam/CreateFantasyTeamPage";
+import { CreateFantasyTeamPage } from "../pages/Create/CreateFantasyTeamPage";
 import { MainPage } from "../pages/Main/MainPage";
 import { FantasyLayout } from "../ui/FantasyLayout";
 
