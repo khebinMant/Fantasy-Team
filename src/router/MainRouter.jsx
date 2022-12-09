@@ -5,6 +5,7 @@ import { Navigate, Route, Routes } from "react-router-dom"
 import { LoginRegisterPage } from '../auth/pages/LoginRegisterPage';
 import { CheckingAuth } from "../components/CheckingAuth";
 import { useCheckOut } from "../hooks/useCheckout";
+import { CreateFantasyTeamPage } from "../pages/CreateFantasyTeam/CreateFantasyTeamPage";
 import { MainPage } from "../pages/Main/MainPage";
 import { FantasyLayout } from "../ui/FantasyLayout";
 
@@ -20,8 +21,11 @@ export const MainRouter = () => {
             <Routes>
                 {     
                     status === 'authenticated'
-                    ?  
-                    <Route path='/*' element={<MainPage/>}/>
+                    ? 
+                    <>
+                        <Route path='/*' element={<MainPage/>}/>
+                        <Route path='/create-fantasy' element={<CreateFantasyTeamPage/>}/>
+                    </>
                     :
                     <Route path='/auth/' element={<LoginRegisterPage/>}/>
                 }

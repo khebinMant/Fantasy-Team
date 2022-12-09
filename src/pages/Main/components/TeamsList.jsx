@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { openDotaApi } from "../../../api/openDotaApi";
+import { openFootballApi } from "../../../api/openFootballApi";
 
 export const TeamsList = () => {
 
@@ -8,7 +8,7 @@ export const TeamsList = () => {
   }, []);
 
   const getRandomTeams = async ()=>{
-    const {data} = await openDotaApi.get(`https://api.opendota.com/api/proPlayers`)
+    const {data} = await openFootballApi.get()
     console.log(data)
   }
 

@@ -7,6 +7,7 @@ export const fantasySlice = createSlice({
         fantasyTeams:[
             {
                 name:null,
+                description:null,
                 creationDate:null,
                 players:[
                     // {
