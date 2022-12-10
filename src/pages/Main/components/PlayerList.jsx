@@ -72,6 +72,8 @@ export const PlayerList = () => {
       :
       <Box style={{marginBottom:'50px'}}>
         <h1>Jugadores</h1>
+        <hr class="new1"/>
+
         <div className="players-gallery">
           <div className="test" onMouseLeave={dragStop}>
             <ScrollMenu

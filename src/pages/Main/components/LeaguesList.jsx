@@ -26,10 +26,9 @@ export const LeaguesList = () => {
     });
 
 
-  const getRandomLeagues = async ()=>{
+    const getRandomLeagues = async ()=>{
     
     const leaguesPromises = [];
-
   
     for(const leagueId of leaguesIds){
       leaguesPromises.push( getLeague(leagueId) )
@@ -51,8 +50,9 @@ export const LeaguesList = () => {
       :
       <Box style={{marginBottom:'50px'}}>
         <h1>Ligas del mundo</h1>
+        <hr class="new1"/>
         <div className="players-gallery">
-          <div className="test" onMouseLeave={dragStop}>
+          <div onMouseLeave={dragStop}>
             <ScrollMenu
               onWheel={onWheel}
               onMouseDown={() => dragStart}
@@ -61,7 +61,7 @@ export const LeaguesList = () => {
             >
               {
                 leagues.map(({leagues},index) => (
-                <Card {...leagues[0]}  key={index} className="card-container" title={leagues[0].strLeague} back="atras">
+                <Card {...leagues[0]}  key={index} className="card-container" back="atras">
                   <img alt="porelmomento" src={leagues[0].strBadge} className="image-card" />
                 </Card>
                 ))

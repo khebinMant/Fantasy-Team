@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import './index.css';
-import "primereact/resources/themes/lara-dark-teal/theme.css";          
+import "primereact/resources/themes/bootstrap4-dark-blue/theme.css";          
 import "primereact/resources/primereact.min.css";                  
 import "primeicons/primeicons.css";    
 import 'animate.css';

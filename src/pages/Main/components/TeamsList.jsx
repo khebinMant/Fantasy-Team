@@ -64,6 +64,8 @@ export const TeamsList = () => {
       :
       <Box style={{marginBottom:'50px'}}>
         <h1>Equipos</h1>
+        <hr class="new1"/>
+
         <div className="players-gallery">
           <div className="test" onMouseLeave={dragStop}>
             <ScrollMenu

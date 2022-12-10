@@ -1,8 +1,14 @@
-const Card = ({ strTrophy, strLeague, children,strCountry }) => {
+import { Navigate, useNavigate } from "react-router";
 
+const Card = ({ strTrophy, strLeague, children,strCountry, idLeague,strBadge }) => {
+
+  const navigation = useNavigate()
 
   return (
-    <div className="card-container">
+    <div 
+      className="card-container"
+      onClick={()=>navigation(`league/${idLeague}`)}
+    >
       <div className="card">
         <div className="front">
           {children}

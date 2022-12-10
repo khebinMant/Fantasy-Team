@@ -26,11 +26,11 @@ const Card = ({ strPlayer,strTeam,idPlayer }) => {
     <div className="card-container">
       <div className="card">
         <div className="front">
-          <img alt={strPlayer} src={player.strThumb!==''?player.strThumb:''} className="image-card" />
+          <img alt={strPlayer} src={player.strThumb!==null?player.strThumb:'https://hoqueisobregrama.com.br/wp-content/uploads/1991/04/profile_player.png'} className="image-card" />
           <div className="products-txt">{player.strPlayer}</div>
         </div>
         <div className="back">
-           <img alt={strPlayer} src={player.strRender!==null?player.strRender:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Golden_star_2.svg/282px-Golden_star_2.svg.png'} className="image-card" />
+           <img alt={strPlayer} src={player.strRender!==null?player.strRender:'https://cdn.icon-icons.com/icons2/2070/PNG/512/soccer_player_icon_125840.png'} className="image-card" />
            <div className="products-txt">{player.strTeam}</div>
         </div>
       </div>

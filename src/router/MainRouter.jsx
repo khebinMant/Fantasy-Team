@@ -7,6 +7,7 @@ import { CheckingAuth } from "../components/CheckingAuth";
 import { useCheckOut } from "../hooks/useCheckout";
 import { CreateFantasyTeamPage } from "../pages/Create/CreateFantasyTeamPage";
 import { FantasyTeamsPage } from "../pages/FantasyTeams/FantasyTeamsPage";
+import { LeaguePage, LeaguesPages } from "../pages/League/LeaguePage";
 import { MainPage } from "../pages/Main/MainPage";
 import { FantasyLayout } from "../ui/FantasyLayout";
 
@@ -27,6 +28,7 @@ export const MainRouter = () => {
                         <Route path='/*' element={<MainPage/>}/>
                         <Route path='/create-fantasy' element={<CreateFantasyTeamPage/>}/>
                         <Route path='/fantasy-teams' element={<FantasyTeamsPage/>}/>
+                        <Route path='/league/:leagueId' element={<LeaguePage/>}/>
                     </>
                     :
                     <Route path='/auth/' element={<LoginRegisterPage/>}/>

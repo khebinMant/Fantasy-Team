@@ -9,7 +9,7 @@ const Card = ({ strTeamJersey, strAlternate, children,strLeague }) => {
           <div className="products-txt">{strAlternate}</div>
         </div>
         <div className="back">
-           <img alt={strLeague} src={strTeamJersey!==null?strTeamJersey:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Golden_star_2.svg/282px-Golden_star_2.svg.png'} className="image-card" />
+           <img alt={strLeague} src={strTeamJersey!==null?strTeamJersey:'https://static.vecteezy.com/system/resources/previews/008/847/318/non_2x/isolated-black-t-shirt-front-free-png.png'} className="image-card" />
            <div className="products-txt">{strLeague}</div>
         </div>
       </div>
