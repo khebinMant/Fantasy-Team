@@ -1,0 +1,53 @@
+.detatailBox{
+    background-color: white;
+    width: 450px;
+    height: 300px;
+    border-radius: 25px;
+    color: black;
+    padding: 10px 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: .5rem .5rem 1rem rgb(163, 29, 134),
+    -.5rem -.5rem 1rem rgb(30, 148, 89);
+    border:2px solid #eee;
+}
+
+.detatailBox:active{
+    box-shadow: inset .2rem .2rem 1rem #ccc,
+    -.2rem -.2rem 1rem #fff;
+}
+
+.playerDetailsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+   align-items: center;
+   height: 100vh;
+   background-color: white;
+   background-image: url('../../assets/soccerBG2.png');
+   background-size: 100vw 100vh
+}
+.dropDown{
+    height: 50px;
+}
+
+@media only screen and (max-width:600px){
+    .playerDetailsContainer{
+        flex-direction: column;
+    }
+    .detatailBox{
+        width: 300px;
+    }
+    .dropDown{
+        width: 130px;
+    }
+}
+.ball{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+ 
+}

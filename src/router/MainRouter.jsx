@@ -1,8 +1,8 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, Route, Routes } from "react-router-dom"
-import { LoginRegisterPage } from '../auth/pages/LoginRegisterPage';
+import { Navigate, Route, Routes } from "react-router-dom";
+import { LoginRegisterPage } from "../auth/pages/LoginRegisterPage";
 import { CheckingAuth } from "../components/CheckingAuth";
 import { useCheckOut } from "../hooks/useCheckout";
 import { CreateFantasyTeamPage } from "../pages/Create/CreateFantasyTeamPage";
@@ -12,15 +12,14 @@ import { LeaguePage, LeaguesPages } from "../pages/League/LeaguePage";
 import { MainPage } from "../pages/Main/MainPage";
 import { PlayerPage } from "../pages/Player/PlayerPage";
 import { TeamPage } from "../pages/Team/TeamsPage";
-import { FantasyLayout } from "../ui/FantasyLayout";
+import PlayerDetails from "../pages/PlayerDetails/PlayerDetails";
 
 export const MainRouter = () => {
+  const { status } = useCheckOut();
 
-    const {status} = useCheckOut()
-
-    if( status === 'checking'){
-        return <CheckingAuth/>
-    }
+  if (status === "checking") {
+    return <CheckingAuth />;
+  }
 
   return (
             <Routes>
@@ -35,6 +34,7 @@ export const MainRouter = () => {
                         <Route path='/team/:teamId' element={<TeamPage/>}/>
                         <Route path='/player/:playerId' element={<PlayerPage/>}/>
                         <Route path='/fantasy-team/:fantasyTeamId' element={<FantasyTeamPage/>}/>
+                        <Route path="/player-details" element={<PlayerDetails />} />
                     </>
                     :
                     <Route path='/auth/' element={<LoginRegisterPage/>}/>
