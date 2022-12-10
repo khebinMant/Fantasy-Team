@@ -1,4 +1,5 @@
 import React from "react";
+import { VisibilityContext } from "react-horizontal-scrolling-menu";
 
 export default function useDrag() {
   const [clicked, setClicked] = React.useState(false);
@@ -55,6 +56,73 @@ export default function useDrag() {
       }
     });
 
+    function Arrow({
+      children,
+      disabled,
+      onClick
+    }) {
+      return (
+        <i
+          disabled={disabled}
+          onClick={onClick} className="pi pi-check" style={{'fontSize': '2em'}}
+        >
+
+        </i>
+
+       
+      );
+    }
+  const  RightArrow = () => {
+      const { isLastItemVisible, scrollNext, visibleElements } = React.useContext(
+        VisibilityContext
+      );
+    
+      // console.log({ isLastItemVisible });
+      const [disabled, setDisabled] = React.useState(
+        !visibleElements.length && isLastItemVisible
+      );
+      React.useEffect(() => {
+        if (visibleElements.length) {
+          setDisabled(isLastItemVisible);
+        }
+      }, [isLastItemVisible, visibleElements]);
+    
+      return (
+        <div style={{ marginLeft:'10px', display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
+          <i disabled={disabled}
+            onClick={() => scrollNext()} className="pi pi-arrow-right" style={{'fontSize': '2em'}}
+          ></i>
+        </div>
+      );
+    }
+
+    const LeftArrow = ()=> {
+      const {
+        isFirstItemVisible,
+        scrollPrev,
+        visibleElements,
+        initComplete
+      } = React.useContext(VisibilityContext);
+    
+      const [disabled, setDisabled] = React.useState(
+        !initComplete || (initComplete && isFirstItemVisible)
+      );
+      React.useEffect(() => {
+        // NOTE: detect if whole component visible
+        if (visibleElements.length) {
+          setDisabled(isFirstItemVisible);
+        }
+      }, [isFirstItemVisible, visibleElements]);
+    
+      return (
+        <div style={{ marginRight:'10px', display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
+          <i disabled={disabled}
+            onClick={() => scrollPrev()} className="pi pi-arrow-left" style={{'fontSize': '2em'}}
+          ></i>
+        </div>
+      );
+    }
+
   return {
     dragStart,
     dragStop,
@@ -63,6 +131,8 @@ export default function useDrag() {
     position,
     setDragging,
     onWheel,
-    handleDrag
+    handleDrag,
+    RightArrow,
+    LeftArrow
   };
 }

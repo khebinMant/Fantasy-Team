@@ -7,51 +7,26 @@ import Card from "./PlayerCard";
 import "../../../styles/PlayerList.css";
 import "../../../styles/MainPage.css";
 import { useEffect, useState } from "react";
-import { PlayerListSkeleton } from "../../../components/Skeletons/CardListSkeleton";
+import { CardListSkeleton, PlayerListSkeleton } from "../../../components/Skeletons/CardListSkeleton";
 import { NavLink } from "react-router-dom";
+import { Skeleton } from "@mui/material";
 
 const teamsIds = [
+  133738,
+  133714,
   138219,
-  138227,
-  138225,
-  138159, //EC
-  140079,
   136050,
-  134153,
-  134146,
-  134794, //USA
   133604,
-  133615,
-  133619,
   133610,
-  133602,
+  133619,
   133613,
   133612,
-  133616,
-  133601, //EN
-  133714,
-  133823,
-  133822,
-  133707,
-  133719,
-  133715, //FR
   133664,
-  133650,
-  133653,
-  133814,
-  134690, //GER
   133670,
   133667,
   133676,
-  133668,
-  133682, //ITA
   133729,
   133739,
-  133738,
-  133735,
-  133740,
-  133725,
-  133730, //ESP,
   134296,
   134286,
   134291,
@@ -73,7 +48,7 @@ const teamsIds = [
 ];
 
 export const PlayerList = () => {
-  const { dragStart, dragStop, dragMove, onWheel } = useDrag();
+  const { dragStart, dragStop, dragMove, onWheel, RightArrow, LeftArrow } = useDrag();
   const [players, setPlayers] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -100,8 +75,11 @@ export const PlayerList = () => {
 
     const responses = await Promise.all(playersPromises);
 
+    
     responses.forEach((element) => {
-      plyrs.push(element.player[0]);
+      element.player.forEach(p => {
+        plyrs.push(p);
+      });
     });
 
     setPlayers(plyrs);
@@ -112,23 +90,28 @@ export const PlayerList = () => {
   return (
     <Box className="player-list-content">
       {isLoading ? (
-        <>
-          {/* <img
-            src={require("../../../assets/loadBall.gif")}
-            className="ballGif"
-          /> */}
-          <p>Estoy cargando</p>
-        </>
+        <Box style={{ marginBottom: "50px" }}>
+          <h1>Jugadores</h1>
+          <hr/>
+          <div className="players-gallery">
+            <div className="test" onMouseLeave={dragStop}>
+              <CardListSkeleton></CardListSkeleton>
+            </div>
+          </div>
+        </Box>
       ) : (
         <Box style={{ marginBottom: "50px" }}>
           <h1>Jugadores</h1>
+          <hr/>
           <div className="players-gallery">
             <div className="test" onMouseLeave={dragStop}>
               <ScrollMenu
-                onWheel={onWheel}
-                onMouseDown={() => dragStart}
-                onMouseUp={() => dragStop}
-                onMouseMove={handleDrag}
+                // onWheel={onWheel}
+                // onMouseDown={() => dragStart}
+                // onMouseUp={() => dragStop}
+                // onMouseMove={handleDrag}
+                RightArrow={RightArrow}
+                LeftArrow={LeftArrow}
               >
                 {players.map((player, index) => (
                   <NavLink className='avoid-link' to="/player-details" state={player}>

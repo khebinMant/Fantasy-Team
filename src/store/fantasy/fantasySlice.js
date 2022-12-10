@@ -43,10 +43,11 @@ export const fantasySlice = createSlice({
             state.isSaving = false
         },
         updateFantasyTeam: (state, action ) => {
+            console.log(action)
             state.isSaving = false;
             state.fantasyTeams = state.fantasyTeams.map(fanteam =>{
                 if(action.payload.id === fanteam.id){
-                    return action.payload
+                    return action.payload.newFantasyTeamValues
                 }
                 return fanteam
             })

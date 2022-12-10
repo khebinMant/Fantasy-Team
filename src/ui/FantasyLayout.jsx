@@ -5,7 +5,7 @@ import { NavBar } from "./components/NavBar";
 const containerStyle = {
   width: "90%",
   paddingBottom: '180px',
-  margin: "100px auto",
+  margin: "30px auto",
 };
 
 export const FantasyLayout = ({ children }) => {

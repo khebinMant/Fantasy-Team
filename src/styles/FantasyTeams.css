@@ -46,7 +46,8 @@
     align-items: flex-start;
 }
 .edit-side{
-    width: 50%;
+    position: relative;
+    width: auto;
     height: 50%;
 }
 .information{
@@ -61,15 +62,39 @@
     object-fit: scale-down;
 }
 
+.player-ft{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border-style: solid;
+    gap: 15px;
+    border-width: 1px;
+    border-color: #343E4D;
+    width: 30rem;
+    height: 4em;
+}
+.name-player{
+    text-align: center;
+}
 .arena-side{
     width: 50%;
     height: 500px;
-    background-color:#2A323D;
     border-radius: 5px;
+}
+
+.edit-cancel-buttons{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px 5px;
 }
 
 @media only screen and (max-width: 600px) {
     .content-library{
         margin-left: 50px;
+    }
+    .team-page{
+        flex-direction: column;
     }
 }

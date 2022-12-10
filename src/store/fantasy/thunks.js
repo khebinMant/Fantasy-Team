@@ -1,4 +1,4 @@
-import { addNewFantasyTeam, setActiveFantasyTeam, setIsCreatingNewFantasyTeam } from "./fantasySlice"
+import { addNewFantasyTeam, setActiveFantasyTeam, setIsCreatingNewFantasyTeam, updateFantasyTeam } from "./fantasySlice"
 
 export const startFantasyTeam = (newFantasyTeam) =>{
 
@@ -15,8 +15,23 @@ export const startFantasyTeam = (newFantasyTeam) =>{
 
         localStorage.setItem('fantasyTeams', JSON.stringify(fantasyTeams))
 
-
-
     }
 
+}
+
+export const startUpdateFantasyTeam = (newFantasyTeamValues, id) =>{
+    return async (dispatch, getState)=>{
+
+        console.log(newFantasyTeamValues)
+        dispatch( setIsCreatingNewFantasyTeam() )
+
+        //Despachar
+        dispatch( updateFantasyTeam({newFantasyTeamValues, id}) )
+
+
+        //Actualizar local storage
+        const  fantasyTeams  = getState().fantasy.fantasyTeams
+        localStorage.setItem('fantasyTeams', JSON.stringify(fantasyTeams))
+
+    }
 }

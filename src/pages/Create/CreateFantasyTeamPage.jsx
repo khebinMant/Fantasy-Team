@@ -6,85 +6,29 @@ import { Button } from "primereact/button";
 import { Dialog } from "primereact/dialog";
 import { classNames } from "primereact/utils";
 
-
 import { FantasyLayout } from "../../ui/FantasyLayout";
 import "../../styles/CreateFantasyPage.css";
 import { useDispatch } from "react-redux";
 import { startFantasyTeam } from "../../store/fantasy/thunks";
 import { IconButton } from "@mui/material";
+import { useFormCreate } from "../../hooks/useFormCreate";
 
 export const CreateFantasyTeamPage = () => {
-  const [showMessage, setShowMessage] = useState(false);
-  const [formData, setFormData] = useState({});
-  const [cover, setCover] = useState("");
-  const fileInputRef = useRef()
-  const dispatch = useDispatch();
+  const fileInputRef = useRef();
 
-  const formik = useFormik({
-    initialValues: {
-      name: "",
-      description: "",
-    },
-    validate: (data) => {
-      let errors = {};
+  const {
+    formik,
+    dialogFooter,
+    getFormErrorMessage,
+    handleOnChangeFile,
+    showMessage,
+    setShowMessage,
+    formData,
+    cover,
+    setCover,
+    isFormFieldValid
+  } = useFormCreate();
 
-      if (!data.name) {
-        errors.name = "Name is required.";
-      }
-
-      if (!data.description) {
-        errors.description = "Description is required.";
-      }
-
-      return errors;
-    },
-    onSubmit: (data) => {
-      setFormData(data);
-      setShowMessage(true);
-      const newFantasyTeam = {
-        ...data,
-        id: crypto.randomUUID(),
-        creationDate: Date(),
-        players: [],
-        captain: null,
-        rating: null,
-        image: cover,
-      };
-      dispatch(startFantasyTeam(newFantasyTeam));
-      formik.resetForm();
-    },
-  });
-
-  const handleOnChangeFile = (e) => {
-    const element = e.target;
-    var file = element.files[0];
-    var reader = new FileReader();
-    reader.onloadend = function () {
-      setCover(reader.result.toString());
-    };
-    reader.readAsDataURL(file);
-  };
-
-  const isFormFieldValid = (name) =>
-    !!(formik.touched[name] && formik.errors[name]);
-  const getFormErrorMessage = (name) => {
-    return (
-      isFormFieldValid(name) && (
-        <small className="p-error">{formik.errors[name]}</small>
-      )
-    );
-  };
-
-  const dialogFooter = (
-    <div className="flex justify-content-center">
-      <Button
-        label="OK"
-        className="p-button-text"
-        autoFocus
-        onClick={() => setShowMessage(false)}
-      />
-    </div>
-  );
   return (
     <FantasyLayout>
       <div className="form">
@@ -113,7 +57,7 @@ export const CreateFantasyTeamPage = () => {
 
         <div className="flex justify-content-center">
           <div className="card">
-            <h5 className="text-center">Register</h5>
+            <h5 className="text-center">Crea tu Equipo de fantasía</h5>
             <form onSubmit={formik.handleSubmit} className="p-fluid">
               <div className="field">
                 <span className="p-float-label">
@@ -163,16 +107,19 @@ export const CreateFantasyTeamPage = () => {
               </div>
               <div className="field">
                 <span className="p-float-label">
-                    <IconButton
-                        color='primary'
-                        onClick={()=> fileInputRef.current.click() }
-                    >
-                        <i className="pi pi-cloud-upload" style={{'fontSize': '2em'}}></i>
-                    </IconButton>
+                  <IconButton
+                    color="primary"
+                    onClick={() => fileInputRef.current.click()}
+                  >
+                    <i
+                      className="pi pi-cloud-upload"
+                      style={{ fontSize: "2em" }}
+                    ></i>
+                  </IconButton>
                   <input
-                    ref={ fileInputRef }
+                    ref={fileInputRef}
                     type="file"
-                    style={{display:'none'}}
+                    style={{ display: "none" }}
                     name="cover"
                     onChange={handleOnChangeFile}
                   />
