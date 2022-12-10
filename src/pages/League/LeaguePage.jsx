@@ -66,10 +66,10 @@ export const LeaguePage = () => {
                             </div>
                           </div>
                       </div>
-                        <div className='league-decription'>
+                        {/* <div className='league-decription'>
                           <h1>{league.strLeague}</h1>
                           <h2>{league.strLeagueAlternate}</h2>
-                        </div>
+                        </div> */}
                         <div className='social-media'>
                           <a href={`https://${league.strTwitter}`} target="_blank" rel="noreferrer">
                             <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/2491px-Twitter-logo.svg.png"/>
