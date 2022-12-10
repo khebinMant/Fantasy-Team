@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "animate.css": "^4.1.1",
     "axios": "^1.2.1",
+    "color.js": "^1.2.0",
     "firebase": "^9.14.0",
     "formik": "^2.2.9",
     "localforage": "^1.10.0",

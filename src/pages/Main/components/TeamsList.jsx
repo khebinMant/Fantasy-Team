@@ -64,10 +64,10 @@ export const TeamsList = () => {
       :
       <Box style={{marginBottom:'50px'}}>
         <h1>Equipos</h1>
-        <hr class="new1"/>
+        <hr/>
 
         <div className="players-gallery">
-          <div className="test" onMouseLeave={dragStop}>
+          <div onMouseLeave={dragStop}>
             <ScrollMenu
               onWheel={onWheel}
               onMouseDown={() => dragStart}

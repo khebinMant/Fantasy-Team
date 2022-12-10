@@ -50,7 +50,7 @@ export const LeaguesList = () => {
       :
       <Box style={{marginBottom:'50px'}}>
         <h1>Ligas del mundo</h1>
-        <hr class="new1"/>
+        <hr/>
         <div className="players-gallery">
           <div onMouseLeave={dragStop}>
             <ScrollMenu

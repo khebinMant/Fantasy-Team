@@ -1,4 +1,5 @@
 import { loginWithEmailPassword, logoutFirebase, registerUserWithEmailPassword, signInWithGoogle } from "../../firebase/providers"
+import { setFantasyTeams } from "../fantasy/fantasySlice"
 import { checkingCredential, logout, login, setIncorrectRegister, setCorrectRegister } from "./authSlice"
 
 export const checkingAuthentication = (email, password) =>{
@@ -51,6 +52,22 @@ export const startLogout = ()=>{
 
         await logoutFirebase()
         dispatch(logout())
+
+    }
+}
+
+export const startFantasyTeams = ( ) =>{
+    return async( dispatch, getState ) =>{
+
+        // const { uid } = getState().auth;
+        
+        // if( !uid ) throw new Error('El UID del usuario no existe')
+
+        const fantasyTeams =  JSON.parse( localStorage.getItem('fantasyTeams')) || [];
+        
+        console.log(fantasyTeams)
+
+        dispatch(setFantasyTeams(fantasyTeams))
 
     }
 }

@@ -5,26 +5,26 @@ export const fantasySlice = createSlice({
     initialState: {
         isSaving: false, //permite determinar si esta en modo de creacion
         fantasyTeams:[
-            {
-                name:null,
-                description:null,
-                creationDate:null,
-                players:[
-                    // {
-                    //     player_key:'',//id
-                    //     player_name:'',
-                    //     player_number:'',//numero de camiseta
-                    //     player_country:'',//pais
-                    //     player_age:'',//edad
-                    //     player_injured:'',//lesionado
-                    //     player_image:''//url de la imagne del jugador
-                    // }
-                ],
-                captain:null,//id del jugador ,
-                rating:null,
-                image:null,
-                alignment:[]
-            }
+            // {
+            //     name:'Unico',
+            //     description:null,
+            //     creationDate:null,
+            //     players:[
+            //         // {
+            //         //     player_key:'',//id
+            //         //     player_name:'',
+            //         //     player_number:'',//numero de camiseta
+            //         //     player_country:'',//pais
+            //         //     player_age:'',//edad
+            //         //     player_injured:'',//lesionado
+            //         //     player_image:''//url de la imagne del jugador
+            //         // }
+            //     ],
+            //     captain:null,//id del jugador ,
+            //     rating:null,
+            //     image:null,
+            //     alignment:[]
+            // }
         ],
         activeFantasyTeam:null//obejto del fantasy team actual seleccionado
     },
@@ -53,9 +53,12 @@ export const fantasySlice = createSlice({
         },
         deleteFantasyTeam:(state, action)=>{
             state.fantasyTeams.splice(state.fantasyTeams.findIndex(fanteam => fanteam.id === action.payload),1)
+        },
+        setFantasyTeams:(state, action)=>{
+            state.fantasyTeams =  action.payload
         }
 
     }
 });
 // Action creators are generated for each case reducer function
-export const { setIsCreatingNewFantasyTeam, setActiveFantasyTeam, setUserInfo, addNewFantasyTeam, updateFantasyTeam, deleteFantasyTeam   } = fantasySlice.actions;
+export const { setIsCreatingNewFantasyTeam, setActiveFantasyTeam, setUserInfo, addNewFantasyTeam, updateFantasyTeam, deleteFantasyTeam, setFantasyTeams} = fantasySlice.actions;

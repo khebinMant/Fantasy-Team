@@ -6,9 +6,12 @@ import { LoginRegisterPage } from '../auth/pages/LoginRegisterPage';
 import { CheckingAuth } from "../components/CheckingAuth";
 import { useCheckOut } from "../hooks/useCheckout";
 import { CreateFantasyTeamPage } from "../pages/Create/CreateFantasyTeamPage";
+import { FantasyTeamPage } from "../pages/FantasyTeams/FantasyTeamPage";
 import { FantasyTeamsPage } from "../pages/FantasyTeams/FantasyTeamsPage";
 import { LeaguePage, LeaguesPages } from "../pages/League/LeaguePage";
 import { MainPage } from "../pages/Main/MainPage";
+import { PlayerPage } from "../pages/Player/PlayerPage";
+import { TeamPage } from "../pages/Team/TeamsPage";
 import { FantasyLayout } from "../ui/FantasyLayout";
 
 export const MainRouter = () => {
@@ -29,6 +32,9 @@ export const MainRouter = () => {
                         <Route path='/create-fantasy' element={<CreateFantasyTeamPage/>}/>
                         <Route path='/fantasy-teams' element={<FantasyTeamsPage/>}/>
                         <Route path='/league/:leagueId' element={<LeaguePage/>}/>
+                        <Route path='/team/:teamId' element={<TeamPage/>}/>
+                        <Route path='/player/:playerId' element={<PlayerPage/>}/>
+                        <Route path='/fantasy-team/:fantasyTeamId' element={<FantasyTeamPage/>}/>
                     </>
                     :
                     <Route path='/auth/' element={<LoginRegisterPage/>}/>

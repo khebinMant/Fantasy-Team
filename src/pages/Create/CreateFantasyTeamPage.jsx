@@ -43,6 +43,7 @@ export const CreateFantasyTeamPage = () => {
       setShowMessage(true);
       const newFantasyTeam = {
         ...data,
+        id: crypto.randomUUID(),
         creationDate: Date(),
         players: [],
         captain: null,

@@ -1,31 +1,27 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import { Grid } from '@mui/material';
+import { Box } from '@mui/system';
+import { useSelector } from 'react-redux';
 import { FantasyLayout } from '../../ui/FantasyLayout';
+import '../../styles/FantasyTeams.css'
+import { FantasyTeamCard } from './FantasyTeamCard';
+
+
 
 export const FantasyTeamsPage = () => {
-    const [players, setplayers] = useState();
-    const [result, setResult] = useState();
-  const options = {
-    method: "GET",
-    url: "https://api.opendota.com/api/proPlayers",
-  };
-  const currentPage = "https://api.opendota.com/api/proPlayers";
 
-  useEffect(() => {
-    try {
-      axios.get(currentPage).then((response) => {
-        setResult(response.data);
-        console.log(response.data);
-      });
-    } catch (e) {
-      alert(e.message);
-      return;
-    }
-  }, []);
+  const {fantasyTeams} = useSelector(state => state.fantasy)
 
   return (
-    <FantasyLayout>
-         {/* <PlayerCard data={result} /> */}
-    </FantasyLayout>
+  <FantasyLayout>
+        <Box className="fantasy-page-content" sx={{ flexGrow: 1 }}>
+          <Grid container spacing={{ xs: 2,  sm:3, md: 2 }} columns={{ xs: 4, sm: 8, md: 10 }}>
+          {
+            fantasyTeams.map((team, index)=>(
+              <FantasyTeamCard key={index} team={team}/>
+            ))
+          }
+          </Grid>
+        </Box>
+  </FantasyLayout>
   )
 }

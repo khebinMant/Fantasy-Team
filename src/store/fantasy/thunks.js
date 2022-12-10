@@ -6,14 +6,16 @@ export const startFantasyTeam = (newFantasyTeam) =>{
 
         dispatch( setIsCreatingNewFantasyTeam() )
 
+        //Despachar 
+        dispatch( addNewFantasyTeam( newFantasyTeam ) )
+        dispatch( setActiveFantasyTeam(newFantasyTeam) )
+
         //Guadar en local storage
         const  fantasyTeams  = getState().fantasy.fantasyTeams
 
         localStorage.setItem('fantasyTeams', JSON.stringify(fantasyTeams))
 
-        //Despachar 
-        dispatch( addNewFantasyTeam( newFantasyTeam ) )
-        dispatch( setActiveFantasyTeam(newFantasyTeam) )
+
 
     }
 

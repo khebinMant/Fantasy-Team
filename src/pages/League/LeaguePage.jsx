@@ -1,18 +1,20 @@
 import { useEffect, useState } from 'react'
-import { useLocation, useParams } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import { getLeague } from '../../helpers/getLeague'
 import { getTeamsByLeague } from '../../helpers/getTeamsByLeague'
 import { FantasyLayout } from '../../ui/FantasyLayout'
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import { Button } from 'primereact/button';
+
 import '../../styles/LeaguePage.css'
 
 export const LeaguePage = () => {
 
   const [league, setLeague] = useState()
   const [teams, setTeams] = useState()
-  const location = useLocation()
   const params =  useParams();
+  const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -35,9 +37,21 @@ export const LeaguePage = () => {
     return <img src={rowData.strTeamBadge} onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={rowData.image} className="team-image" />;
   }
 
+  const buttonTemplate = (rowData) =>{
+    return <>
+      <Button
+        onClick={()=>navigate(`/team/${rowData.idTeam}`)} 
+        label="Ver más" 
+        className="p-button-rounded p-button-info p-button-outlined" 
+      />
+    </>
+  }
+
   const footer = 
     <>
         {
+          isLoading?
+          '':
         `En total en la Liga juegan ${teams ? teams.length : 0} equipos.`
         }
     </>
@@ -52,7 +66,7 @@ export const LeaguePage = () => {
           <div className='league-card-container'>
             </div>
             <div className='league-info-container'>
-              <div  style={{backgroundImage:`url(${league.strPoster})`,objectFit:'contain'}} className='team-info'>
+              <div style={{backgroundImage:`url(${league.strPoster})`,objectFit:'contain'}} className='team-info'>
                   <div className='info-header'>
                       <div className='card-container-page'>
                           <div className="card-page">
@@ -66,10 +80,6 @@ export const LeaguePage = () => {
                             </div>
                           </div>
                       </div>
-                        {/* <div className='league-decription'>
-                          <h1>{league.strLeague}</h1>
-                          <h2>{league.strLeagueAlternate}</h2>
-                        </div> */}
                         <div className='social-media'>
                           <a href={`https://${league.strTwitter}`} target="_blank" rel="noreferrer">
                             <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/2491px-Twitter-logo.svg.png"/>
@@ -88,6 +98,7 @@ export const LeaguePage = () => {
                     <Column field="strStadium" header="Estadio" />
                     <Column field="intFormedYear" header="Año creación" />
                     <Column field="strWebsite" header="SitioWeb" />
+                    <Column header="Jugadores" body={buttonTemplate}/>
                 </DataTable>
               </div>
             </div>
