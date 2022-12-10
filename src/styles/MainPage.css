@@ -44,6 +44,18 @@
     transform-style: preserve-3d;
     background-color: transparent;
     color: rgb(255, 255, 255);
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+    cursor: pointer;
 }
 .card-container{
     position: relative;
@@ -68,7 +80,6 @@
     user-select: none; 
     cursor: pointer;
     border-radius: 10px;
-
 }
 .card-container:hover .card{
     transform: rotateY(-180deg);
@@ -119,8 +130,8 @@
     align-items: center;
     border-radius: 20px;
     background-image: url(../assets/cardAnim.gif);
-   background-size: 600px 100%;
-   background-position: center;
+    background-size: 600px 100%;
+    background-position: center;
 }
 
 .products-txt{
@@ -131,6 +142,20 @@
     margin: 10px 0px;
 }
 
+.avoid-link{
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+    cursor: pointer;
+}
 
 .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
     display: none;

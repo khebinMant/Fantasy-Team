@@ -131,7 +131,7 @@ export const PlayerList = () => {
                 onMouseMove={handleDrag}
               >
                 {players.map((player, index) => (
-                  <NavLink to="/player-details" state={player}>
+                  <NavLink className='avoid-link' to="/player-details" state={player}>
                     <Card
                       {...player}
                       key={index}
