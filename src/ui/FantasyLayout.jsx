@@ -4,18 +4,16 @@ import { NavBar } from "./components/NavBar";
 
 const containerStyle = {
   width: "90%",
-  paddingBottom: '180px',
+  /*  paddingBottom: "180px", */
   margin: "100px auto",
 };
 
 export const FantasyLayout = ({ children }) => {
   return (
     <div>
-      <NavBar/>
-      <div  style={containerStyle}>
-        {children}
-      </div>
-        {/* <Footer/> */}
+      <NavBar />
+      <div style={containerStyle}>{children}</div>
+      <Footer />
     </div>
   );
 };
