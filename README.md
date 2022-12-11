@@ -127,7 +127,7 @@ npm start
 
 - [x] Anadir un changelog
 - [x] Filtrar contenido por jugadores
-- [ ] Posicionar jugadores de Fantasy Team en un campo virtual.
+- [x] Posicionar jugadores de Fantasy Team en un campo virtual.
 - [ ] Tabla de informacion global de los mejores equipos creados.
 - [ ] Soporte de idiomas:
   - [ ] ruso
