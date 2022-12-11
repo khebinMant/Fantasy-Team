@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { Avatar } from 'primereact/avatar';
 import { Menu } from 'primereact/menu';
 import balon from '../../assets/balon.png'
+import kamaleon from '../../assets/user.jpeg'
 import '../../styles/NavBarFooter.css'
 import { setSearchedPlayer, setSearchedTeam } from '../../store/fantasy/fantasySlice';
 
@@ -87,8 +88,8 @@ export const NavBar = () => {
         <Menu model={itemsLog} popup ref={menu} id="popup_menu" />
         <Avatar
             onClick={(event) => menu.current.toggle(event)} 
-            image='https://cdn-icons-png.flaticon.com/512/219/219983.png'
-            className="user-avatar" size="circle" 
+            image={kamaleon}
+            className="user-avatar" size="large" 
             shape="circle" 
         />
     </div>

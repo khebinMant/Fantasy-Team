@@ -1,18 +1,16 @@
-
 import { FantasyLayout } from "../../ui/FantasyLayout";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Dropdown } from "primereact/dropdown";
 import { useDispatch, useSelector } from "react-redux";
 import { startSavePlayerToTeam } from "../../store/fantasy/thunks";
-import "./PlayerDetails.css";
 import { getPlayer } from "../../helpers/getPlayer";
-import CardP from "./PlayerCard";
 import { CheckingAuth } from "../../components/CheckingAuth";
+import CardP from "./PlayerCard";
+import "./PlayerDetails.css";
 
 const PlayerPage = () => {
 
-  const location = useLocation();
   const [porcentage, setPorcentage] = useState();
   const [fantasySelected, setFantasySelected] = useState();
   const state = useSelector((state) => state.fantasy);
@@ -31,6 +29,7 @@ const PlayerPage = () => {
     console.log(response)
     setPlayer(response.players[0])
     if(player){
+
       setPorcentage(player.strHeight.slice(0, 4) * 50)
     }
     setIsLoading(false)
