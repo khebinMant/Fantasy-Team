@@ -1,11 +1,13 @@
 import { FantasyLayout } from "../../ui/FantasyLayout";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Dropdown } from "primereact/dropdown";
 import { useDispatch, useSelector } from "react-redux";
 import { startSavePlayerToTeam } from "../../store/fantasy/thunks";
 import { getPlayer } from "../../helpers/getPlayer";
 import { CheckingAuth } from "../../components/CheckingAuth";
+import { Button } from 'primereact/button';
+
 import CardP from "./PlayerCard";
 import "./PlayerDetails.css";
 
@@ -13,28 +15,44 @@ const PlayerPage = () => {
 
   const [porcentage, setPorcentage] = useState();
   const [fantasySelected, setFantasySelected] = useState();
-  const state = useSelector((state) => state.fantasy);
+  const {fantasyTeams} = useSelector((state) => state.fantasy);
   const dispatch = useDispatch();
   const [player, setPlayer] = useState()
   const [isLoading, setIsLoading] = useState(true)
   const params =  useParams();
-
+  const [hasFt, setHasFt] = useState(false)
+  const [fantasyTeam, setFantasyTeam] = useState()
   
   useEffect(() => {
     getPlayerById()
   }, []);
 
+  useEffect(()=>{
+    setConfig()
+  },[player,hasFt])
+
+  const setConfig = ()=>{
+    if(player){
+      setPorcentage(player.strHeight.slice(0, 4) * 50)
+ 
+      fantasyTeams.forEach(ft => {
+        ft.players.forEach(pl => {
+            if(pl.idPlayer === player.idPlayer){
+              setFantasyTeam(ft)
+              setHasFt(true)
+              console.log('ya pertenece a un equipo')
+            }
+        });
+      });
+    }
+  }
+
   const getPlayerById = async()=>{
     const response =  await Promise.resolve( getPlayer( params.playerId ) );
     console.log(response)
     setPlayer(response.players[0])
-    if(player){
-
-      setPorcentage(player.strHeight.slice(0, 4) * 50)
-    }
     setIsLoading(false)
   }
-
 
   const statsStyle = {
     width: `${porcentage}%`,
@@ -43,6 +61,7 @@ const PlayerPage = () => {
 
   const savePlayerOnFt = () => {
     dispatch(startSavePlayerToTeam(player, fantasySelected.id))
+    setHasFt(true)
   };
 
   return (
@@ -86,16 +105,25 @@ const PlayerPage = () => {
                       </div>
                     </div>
                   </div>
-                  <span>Equipo Fantasia:</span>
-                  <div className="dropDownRowContainer">
-                    <Dropdown
-                      value={fantasySelected}
-                      options={state.fantasyTeams}
-                      onChange={(e) => setFantasySelected(e.value)}
-                      optionLabel="name" 
-                    />
-                </div>
-                  <button  onClick={savePlayerOnFt}>Guardar</button>
+                  <span><b>Equipo de Fantasia </b></span>
+                  {
+                    hasFt && fantasyTeam?
+                    <p>
+                      <Link to={`/fantasy-team/${fantasyTeam.id}`}>{fantasyTeam.name}</Link>
+                    </p>
+                    :
+                    <>
+                      <div className="dropDownRowContainer">
+                        <Dropdown
+                          value={fantasySelected}
+                          options={fantasyTeams}
+                          onChange={(e) => setFantasySelected(e.value)}
+                          optionLabel="name" 
+                        />
+                      <Button  onClick={savePlayerOnFt} label="Guardar" className="p-button-success" />
+                      </div>
+                    </>
+                  }
               </div>
             </div>
             </div>

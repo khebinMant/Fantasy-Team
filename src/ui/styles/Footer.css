@@ -1,5 +1,8 @@
-.footerContainer{
-    background-color: aqua;
+.kamaleon{
+    position: absolute;
+    right: 0;
+    height: 150px;
+    width: 105px;
 }
 .footerTopBox{
     background-color: #6452ce;
@@ -35,20 +38,27 @@
     width: 150px;
 }
 
-/* .contactContainer>h4{
-    border-bottom: 2px solid white;
-    
-} */
 .contactContainer>h4::after{
     content: "";
     display: block;
     width: 50%;
     border-bottom: 1px solid white;
     margin-top: 8px;
-    
 }
 
 .contactRow{
     display: flex;
     gap: 10px;
 }
+
+
+
+@media only screen and (max-width: 600px) {
+    .kamaleon{
+        display: none;
+    }
+    .footerContainer{
+        font-size: 10px;
+    }
+}
+

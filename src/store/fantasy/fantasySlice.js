@@ -83,7 +83,7 @@ export const fantasySlice = createSlice({
     deletePlayerFromTeam: (state, action) => {
       state.fantasyTeams = state.fantasyTeams.map((fanteam) => {
         if (action.payload.teamId === fanteam.id) {
-            fanteam.players.splice(fanteam.players.findIndex(player => player.id === action.payload.playerId),1)
+            fanteam.players.splice(fanteam.players.findIndex(player => player.idPlayer === action.payload.playerId),1)
         }
         return fanteam;
       });

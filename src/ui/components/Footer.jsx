@@ -7,10 +7,12 @@ import {
 } from "react-icons/ai";
 import { BsFillHouseDoorFill } from "react-icons/bs";
 import { GrMail } from "react-icons/gr";
+import kamaleon  from '../../assets/kmaleon.png'
 export const Footer = () => {
   return (
     <div className="footerContainer">
       <div className="footerTopBox">
+      <img className="kamaleon" src={kamaleon}/>
         Siguenos en nuestras redes:
         <div className="topIcons">
           <div className="boxUser">

@@ -114,7 +114,31 @@
     opacity: 1.0;
     transition: opacity 1s, visibility .2s ease-out 100ms
 }
-
+.firstLine{
+    width: 100%;
+}
+.firstLine td{
+    border-bottom: 2px solid black;
+    width: 100%;
+}
+.table-content{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.header-table{
+    background-color: #6452CE;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+.delete-icon{
+    cursor: pointer;
+    font-size: large;
+}
 @media only screen and (max-width: 600px) {
     .team-page{
         flex-direction: column;

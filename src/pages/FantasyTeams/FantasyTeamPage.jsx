@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import "../../styles/FantasyTeams.css";
-import { PlayersFT } from "./components/PlayersFT";
 import { Dropdown } from "primereact/dropdown";
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
@@ -31,9 +30,10 @@ export const FantasyTeamPage = () => {
     const [formValues] = useState({newName: "",newDescription: "",});
     const { fantasyTeams } = useSelector((state) => state.fantasy);
     const { newName, newDescription, onInputChange } = useForm(formValues);
-    
+    const [indexPlayer, setIndexPlayer] = useState()
+
     const handleRemovePlayer = (playerId) => {
-        dispatch(startDeletePlayerFromTeam(playerId, team.id));
+       dispatch(startDeletePlayerFromTeam(playerId, team.id));
     };
 
     useEffect(() => {
@@ -151,7 +151,6 @@ export const FantasyTeamPage = () => {
                         <b>Fecha de creación: </b> {team.creationDate}{" "}
                       </h4>
                       <h1> {team.name}</h1>
-                      <h2> {team.rating}</h2>
                       <img
                         className="team-image-info"
                         alt=""
@@ -165,6 +164,9 @@ export const FantasyTeamPage = () => {
                     <span>
                       <p style={{ display: "inline", marginRight: "5px" }}>
                         <b>Capitán: </b>{team.captain}
+                        <div>
+                          <b> Calificación: </b>{team.rating}
+                        </div>
                       </p>
                     </span>
                     <div className="edit-cancel-buttons">
@@ -178,13 +180,32 @@ export const FantasyTeamPage = () => {
                 )}
               </TabPanel>
               <TabPanel header="Jugadores">
-                {team.players.map((player) => (
-                  <PlayersFT
-                    key={player.id}
-                    player={player}
-                    handleRemovePlayer={handleRemovePlayer}
-                  />
-                ))}
+              <div className='table-content'>
+                <table className='firstLine'>
+                  <tbody>
+                    <tr className="header-table">
+                        <th>Imagen</th>
+                        <th style={{margin:'auto'}}>Nombre</th>
+                        <th style={{margin:'auto'}}>Número</th>
+                        <th>Acción</th>
+                    </tr>
+                    {
+                      team.players.map((player, index)=>(
+                        <tr key={index}>
+                          <td><img  alt={player.idPlayer} className='player-image' src={player.strThumb}/></td>
+                          <td style={{margin:'auto'}}>{player.strPlayer}</td>
+                          <td>{player.strNumber}</td>
+                          <td>
+                          <i 
+                            onClick={()=>handleRemovePlayer(player.idPlayer)}
+                            className="pi pi pi-trash delete-icon"></i>
+                          </td>
+                        </tr>
+                      ))
+                    }
+                  </tbody>
+                </table>
+              </div>
               </TabPanel>
             </TabView>
           </div>
