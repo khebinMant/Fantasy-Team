@@ -1,6 +1,3 @@
-.content-library{
-    height: 100%;
-}
 .image-cover{
     margin: auto;
     border-radius: 10px 10px;
@@ -37,8 +34,8 @@
     line-height: 1.5;
     margin: 0;
 }
-
 .team-page{
+    margin-top: 100px;
     gap: 50px;
     display: flex;
     flex-direction: row;
@@ -93,11 +90,15 @@
     width: 50px;
     width: 50px;
 }
+.ft-container{
+    margin: 100px 20px;
+}
+
 @media only screen and (max-width: 600px) {
-    .content-library{
-        margin-left: 50px;
-    }
     .team-page{
         flex-direction: column;
+    }
+    .ft-container{
+        margin-top: 250px;
     }
 }

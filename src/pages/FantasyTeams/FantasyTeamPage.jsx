@@ -76,7 +76,7 @@ export const FantasyTeamPage = () => {
       {team === null ? (
         <p>cargando</p>
       ) : (
-        <div className="team-page">
+        <div style={{marginTop:'100px'}} className="team-page">
           <div className="edit-side">
             <TabView>
               <TabPanel header="Información">
