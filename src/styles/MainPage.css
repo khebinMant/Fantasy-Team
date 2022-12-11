@@ -1,9 +1,9 @@
 .main-content{
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+    margin: 50px 50px;
 }
 .card-gallery-skeleton{
     display: flex;
@@ -181,5 +181,8 @@
         width: auto;
         height: auto;
     }   
+    .main-content{
+        margin-top: 150px;
+    }
 }
 
