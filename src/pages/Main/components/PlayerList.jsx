@@ -90,7 +90,7 @@ export const PlayerList = memo(() => {
           <h1>Jugadores</h1>
           <hr/>
           <div className="players-gallery">
-            <div className="test" onMouseLeave={dragStop}>
+            <div onMouseLeave={dragStop}>
               <ScrollMenu
                 RightArrow={RightArrow}
                 LeftArrow={LeftArrow}
