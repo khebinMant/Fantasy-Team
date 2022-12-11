@@ -16,6 +16,8 @@ import {
 } from "../../store/fantasy/thunks";
 import { useForm } from "../../hooks/useFormEdit";
 import { Rating } from "primereact/rating";
+import cancha from '../../assets/cancha.jpg'
+
 
 export const FantasyTeamPage = () => {
     
@@ -192,7 +194,12 @@ export const FantasyTeamPage = () => {
           </div>
           <div className="arena-side">
             <TabView>
-              <TabPanel header="Alineación"></TabPanel>
+              <TabPanel header="Alineación" >
+                <div className="cancha-container">
+                    <img alt="cancha" src={cancha} className="lineup"/>
+                    <p style={{position:'absolute', top:'0', left:'0'}}>iosdjaispdj</p>
+                </div>
+              </TabPanel>
             </TabView>
           </div>
         </div>

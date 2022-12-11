@@ -76,7 +76,7 @@
 }
 .arena-side{
     width: 50%;
-    height: 500px;
+    height: auto;
     border-radius: 5px;
 }
 
@@ -93,6 +93,14 @@
 .ft-container{
     margin: 100px 20px;
 }
+.cancha-container{
+    position: relative;
+}
+.lineup{
+    margin: auto;
+    width: 330px;
+    object-fit: cover;
+}
 
 @media only screen and (max-width: 600px) {
     .team-page{
@@ -100,5 +108,8 @@
     }
     .ft-container{
         margin-top: 250px;
+    }
+    .arena-side{
+        width: 350px;
     }
 }

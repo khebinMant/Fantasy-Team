@@ -1,4 +1,3 @@
-import "./PlayerDetails.css";
 import Card from "../Main/components/PlayerCard";
 import { FantasyLayout } from "../../ui/FantasyLayout";
 import { useLocation } from "react-router-dom";
@@ -6,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Dropdown } from "primereact/dropdown";
 import { useDispatch, useSelector } from "react-redux";
 import { startSavePlayerToTeam } from "../../store/fantasy/thunks";
+import "./PlayerDetails.css";
 
 const PlayerDetails = () => {
   const location = useLocation();
@@ -34,7 +34,9 @@ const PlayerDetails = () => {
   return (
     <FantasyLayout>
       <div className="playerDetailsContainer">
+      <div className="player-cnt">
         <Card idPlayer={idPlayer} />
+      </div>
 
         <div className="detatailBox">
           <div>
