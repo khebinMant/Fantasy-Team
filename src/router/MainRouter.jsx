@@ -1,6 +1,3 @@
-import { onAuthStateChanged } from "firebase/auth";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { LoginRegisterPage } from "../auth/pages/LoginRegisterPage";
 import { CheckingAuth } from "../components/CheckingAuth";
@@ -8,7 +5,7 @@ import { useCheckOut } from "../hooks/useCheckout";
 import { CreateFantasyTeamPage } from "../pages/Create/CreateFantasyTeamPage";
 import { FantasyTeamPage } from "../pages/FantasyTeams/FantasyTeamPage";
 import { FantasyTeamsPage } from "../pages/FantasyTeams/FantasyTeamsPage";
-import { LeaguePage, LeaguesPages } from "../pages/League/LeaguePage";
+import { LeaguePage } from "../pages/League/LeaguePage";
 import { MainPage } from "../pages/Main/MainPage";
 import PlayerPage from "../pages/Player/PlayerPage";
 import { SearchPlayerPage } from "../pages/SearchPlayer/SearchPlayerPage";

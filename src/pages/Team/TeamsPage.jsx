@@ -83,13 +83,13 @@ export const TeamPage = () => {
                       </div>
                         <div className='social-media'>
                           <a href={`https://${team.strTwitter}`} target="_blank" rel="noreferrer">
-                            <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/2491px-Twitter-logo.svg.png"/>
+                            <img alt="twiter" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/2491px-Twitter-logo.svg.png"/>
                           </a>
                           <a href={`https://${team.strYoutube}`} target="_blank" rel="noreferrer">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png"/>
+                            <img alt="youtube" src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png"/>
                           </a>
                           <a href={`https://${team.strFacebook}`} target="_blank" rel="noreferrer">
-                            <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png"/>
+                            <img alt="facebook" src="https://cdn-icons-png.flaticon.com/512/124/124010.png"/>
                           </a>
                         </div>
                   </div>

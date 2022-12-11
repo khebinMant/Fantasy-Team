@@ -21,7 +21,7 @@ export const NavBar = () => {
 
 
   useEffect(() => {
-    if(location.pathname === '/search-teams' || location.pathname == '/search-players'){
+    if(location.pathname === '/search-teams' || location.pathname === '/search-players'){
         setCanSearch(true)
     }
     else{
@@ -33,7 +33,7 @@ export const NavBar = () => {
         if(location.pathname === '/search-teams'){
             dispatch(setSearchedTeam(e.target.value))
         }
-        else if(location.pathname == '/search-players'){
+        else if(location.pathname === '/search-players'){
             dispatch(setSearchedPlayer(e.target.value))
         }
     }
@@ -97,7 +97,7 @@ export const NavBar = () => {
     return (
         <div>
             <div className="card">
-                <Menubar style={{backgroundColor:'#6452CE',color:'#FFFF', fontSize:'15px', fontWeight:'bold'}} model={items} start={start} end={end} />
+                <Menubar style={{backgroundColor:'#2A2E66',color:'#FFFF', fontSize:'15px', fontWeight:'bold'}} model={items} start={start} end={end} />
             </div>
         </div>
     );

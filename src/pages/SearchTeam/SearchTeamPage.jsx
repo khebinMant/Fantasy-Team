@@ -1,13 +1,9 @@
 import { Box, Grid } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { FantasyLayout } from '../../ui/FantasyLayout';
-// import { FantasyTeamCard } from './FantasyTeamCard';
-// import { AddFantasyTeam } from './components/AddFantasyTeam';
-// import { SearchPlayerCard } from './SearchPlayerCard';
 import { useEffect, useState } from 'react';
 import '../../styles/FantasyTeams.css'
-import { getPlayerByName } from '../../helpers/getPlayerByName';
-import { SearchPlayerCard, SearchTeamCard } from './SearchTeamCard';
+import { SearchTeamCard } from './SearchTeamCard';
 import { getTeamByName } from '../../helpers/getTeamByName';
 import { CheckingAuth } from '../../components/CheckingAuth';
 

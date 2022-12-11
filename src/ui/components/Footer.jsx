@@ -12,7 +12,7 @@ export const Footer = () => {
   return (
     <div className="footerContainer">
       <div className="footerTopBox">
-      <img className="kamaleon" src={kamaleon}/>
+      <img alt="kamaleon" className="kamaleon" src={kamaleon}/>
         Siguenos en nuestras redes:
         <div className="topIcons">
           <div className="boxUser">
