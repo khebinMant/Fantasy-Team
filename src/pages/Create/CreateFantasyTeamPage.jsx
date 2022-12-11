@@ -1,5 +1,4 @@
-import { useRef, useState } from "react";
-import { useFormik } from "formik";
+import { useRef } from "react";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 
@@ -8,8 +7,6 @@ import { classNames } from "primereact/utils";
 
 import { FantasyLayout } from "../../ui/FantasyLayout";
 import "../../styles/CreateFantasyPage.css";
-import { useDispatch } from "react-redux";
-import { startFantasyTeam } from "../../store/fantasy/thunks";
 import { IconButton } from "@mui/material";
 import { useFormCreate } from "../../hooks/useFormCreate";
 
@@ -25,7 +22,6 @@ export const CreateFantasyTeamPage = () => {
     setShowMessage,
     formData,
     cover,
-    setCover,
     isFormFieldValid
   } = useFormCreate();
 

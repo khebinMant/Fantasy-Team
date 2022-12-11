@@ -1,13 +1,13 @@
 import { Button } from 'primereact/button';
 
-export const PlayersFT = ({handleRemovePlayer, numero}) => {
+export const PlayersFT = ({ player, handleRemovePlayer }) => {
 
   return (
     <div className='player-ft' >
-        <span className='name-player'>7</span>
-        <span className='name-player'>Cristiano Ronaldo</span>
+        <img  alt={player.id} className='player-image' src={player.strThumb}/>
+        <span className='name-player'>{player.strPlayer}</span>
         <Button 
-            onClick={()=>handleRemovePlayer(numero)}
+            onClick={()=>handleRemovePlayer(player.id)}
             label="Borrar" 
             className="p-button-outlined p-button-danger"
         />

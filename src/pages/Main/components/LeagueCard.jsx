@@ -1,4 +1,4 @@
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 const Card = ({ strTrophy, strLeague, children,strCountry, idLeague,strBadge }) => {
 

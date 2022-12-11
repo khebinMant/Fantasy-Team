@@ -20,7 +20,7 @@ export const startGoogleSingIn = ()=>{
 
 export const startCreatingUserWithEmailPassword = ({email, password, displayName  }) =>{
     return async( dispatch ) =>{
-        const { ok, uid, photoURL, errorMessage}  = await registerUserWithEmailPassword({email, password, displayName})
+        const { ok, errorMessage}  = await registerUserWithEmailPassword({email, password, displayName})
         if( !ok ) {
             dispatch(logout({errorMessage}))
             dispatch(setIncorrectRegister())
@@ -59,14 +59,9 @@ export const startLogout = ()=>{
 export const startFantasyTeams = ( ) =>{
     return async( dispatch, getState ) =>{
 
-        // const { uid } = getState().auth;
-        
-        // if( !uid ) throw new Error('El UID del usuario no existe')
 
         const fantasyTeams =  JSON.parse( localStorage.getItem('fantasyTeams')) || [];
         
-        console.log(fantasyTeams)
-
         dispatch(setFantasyTeams(fantasyTeams))
 
     }

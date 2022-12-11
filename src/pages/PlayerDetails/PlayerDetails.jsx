@@ -4,28 +4,38 @@ import { FantasyLayout } from "../../ui/FantasyLayout";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Dropdown } from "primereact/dropdown";
+import { useDispatch, useSelector } from "react-redux";
+import { startSavePlayerToTeam } from "../../store/fantasy/thunks";
 
 const PlayerDetails = () => {
   const location = useLocation();
   const { idPlayer } = location.state;
+  const [lock, setlock] = useState(true);
+  const [porcentage, setPorcentage] = useState();
   const [fantasySelected, setFantasySelected] = useState();
+  const state = useSelector((state) => state.fantasy);
+  const dispatch = useDispatch();
+  
+
   useEffect(() => {
-    console.log("params", location.state);
+    setPorcentage(location?.state?.strHeight.slice(0, 4) * 50);
   }, []);
 
-  const citySelectItems = [
-    { label: "New York", value: "NY" },
-    { label: "Rome", value: "RM" },
-    { label: "London", value: "LDN" },
-    { label: "Istanbul", value: "IST" },
-    { label: "Paris", value: "PRS" },
-  ];
+  const statsStyle = {
+    width: `${porcentage}%`,
+  };
+
+
+  const handleLock = () => {
+    setlock(!lock);
+    dispatch(startSavePlayerToTeam(location.state, fantasySelected.id))
+  };
 
   return (
     <FantasyLayout>
       <div className="playerDetailsContainer">
         <Card idPlayer={idPlayer} />
-        {/*      <img src={require("../../assets/ball.png")} className="ball" /> */}
+
         <div className="detatailBox">
           <div>
             <h4>Name: </h4>
@@ -35,14 +45,43 @@ const PlayerDetails = () => {
             <h4>Posicion:</h4>
             <div>{location?.state?.strPosition}</div>
           </div>
+          <div>
+            <div className="skills-bar">
+              <div className="bar">
+                <div className="info">
+                  <span>Statura</span>
+                  <div>{location?.state?.strHeight}</div>
+                </div>
+                <div className="progress-line height">
+                  <span style={statsStyle}></span>
+                </div>
+              </div>
 
-          <Dropdown
-            value={fantasySelected}
-            options={citySelectItems}
-            onChange={(e) => setFantasySelected(e.value)}
-            placeholder="Add to FantasyTeam"
-            className="dropDown"
-          />
+              <div className="bar">
+                <div className="info">
+                  <span>Descripcion:</span>
+                  <div className="descriptionText">
+                    {location?.state?.strDescriptionEN}
+                  </div>
+                </div>
+              </div>
+
+              <div className="bar">
+                <div className="info">
+                  <span>Equipo Fantasia:</span>
+                  <div className="dropDownRowContainer">
+                    <Dropdown
+                      value={fantasySelected}
+                      options={state.fantasyTeams}
+                      onChange={(e) => setFantasySelected(e.value)}
+                      optionLabel="name" 
+                    />
+                    <button  onClick={handleLock}>Guardar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </FantasyLayout>

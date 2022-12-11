@@ -1,4 +1,4 @@
-import { addNewFantasyTeam, setActiveFantasyTeam, setIsCreatingNewFantasyTeam, updateFantasyTeam } from "./fantasySlice"
+import { addNewFantasyTeam, deletePlayerFromTeam, setActiveFantasyTeam, setIsCreatingNewFantasyTeam, setPlayerOnFantasyTeam, updateFantasyTeam } from "./fantasySlice"
 
 export const startFantasyTeam = (newFantasyTeam) =>{
 
@@ -22,7 +22,6 @@ export const startFantasyTeam = (newFantasyTeam) =>{
 export const startUpdateFantasyTeam = (newFantasyTeamValues, id) =>{
     return async (dispatch, getState)=>{
 
-        console.log(newFantasyTeamValues)
         dispatch( setIsCreatingNewFantasyTeam() )
 
         //Despachar
@@ -32,6 +31,36 @@ export const startUpdateFantasyTeam = (newFantasyTeamValues, id) =>{
         //Actualizar local storage
         const  fantasyTeams  = getState().fantasy.fantasyTeams
         localStorage.setItem('fantasyTeams', JSON.stringify(fantasyTeams))
+
+    }
+}
+
+export const startSavePlayerToTeam = (newPlayer, id) =>{
+    return async (dispatch, getState)=>{
+
+
+        //Despachar
+        dispatch( setPlayerOnFantasyTeam({newPlayer, id}) )
+
+
+        //Actualizar local storage
+        const  fantasyTeams  = getState().fantasy.fantasyTeams
+        localStorage.setItem('fantasyTeams', JSON.stringify(fantasyTeams))
+
+    }
+}
+
+export const startDeletePlayerFromTeam = (playerId, teamId) =>{
+    return async (dispatch, getState)=>{
+
+        //Despachar
+        dispatch( deletePlayerFromTeam({playerId, teamId}) )
+
+
+        //Actualizar local storage
+        const  fantasyTeams  = getState().fantasy.fantasyTeams
+        localStorage.setItem('fantasyTeams', JSON.stringify(fantasyTeams))
+
 
     }
 }

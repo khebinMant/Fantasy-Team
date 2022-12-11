@@ -56,29 +56,11 @@ export default function useDrag() {
       }
     });
 
-    function Arrow({
-      children,
-      disabled,
-      onClick
-    }) {
-      return (
-        <i
-          disabled={disabled}
-          onClick={onClick} className="pi pi-check" style={{'fontSize': '2em'}}
-        >
-
-        </i>
-
-       
-      );
-    }
   const  RightArrow = () => {
       const { isLastItemVisible, scrollNext, visibleElements } = React.useContext(
         VisibilityContext
       );
-    
-      // console.log({ isLastItemVisible });
-      const [disabled, setDisabled] = React.useState(
+        const [disabled, setDisabled] = React.useState(
         !visibleElements.length && isLastItemVisible
       );
       React.useEffect(() => {
@@ -108,7 +90,6 @@ export default function useDrag() {
         !initComplete || (initComplete && isFirstItemVisible)
       );
       React.useEffect(() => {
-        // NOTE: detect if whole component visible
         if (visibleElements.length) {
           setDisabled(isFirstItemVisible);
         }

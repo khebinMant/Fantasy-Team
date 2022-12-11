@@ -12,22 +12,13 @@ const leaguesIds = [
 ];
 
 export const LeaguesList = () => {
-  const { dragStart, dragStop, dragMove, onWheel, RightArrow, LeftArrow } = useDrag();
+  const { dragStop, RightArrow, LeftArrow } = useDrag();
   const [leagues, setLeagues] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getRandomLeagues();
   }, []);
-
-  const handleDrag =
-    ({ scrollContainer }) =>
-    (ev) =>
-      dragMove(ev, (posDiff) => {
-        if (scrollContainer.current) {
-          scrollContainer.current.scrollLeft += posDiff;
-        }
-      });
 
   const getRandomLeagues = async () => {
     const leaguesPromises = [];
@@ -38,7 +29,6 @@ export const LeaguesList = () => {
     const responses = await Promise.all(leaguesPromises);
     setLeagues(responses);
     setIsLoading(false);
-    console.log(responses);
   };
 
   return (

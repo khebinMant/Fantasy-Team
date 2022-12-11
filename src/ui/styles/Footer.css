@@ -1,0 +1,54 @@
+.footerContainer{
+    background-color: aqua;
+}
+.footerTopBox{
+    background-color: #6452ce;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.footerBotBox{
+    background-color: #1d2331;
+    padding: 25px 40px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.topIcons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.boxUser{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.contactContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 150px;
+}
+
+/* .contactContainer>h4{
+    border-bottom: 2px solid white;
+    
+} */
+.contactContainer>h4::after{
+    content: "";
+    display: block;
+    width: 50%;
+    border-bottom: 1px solid white;
+    margin-top: 8px;
+    
+}
+
+.contactRow{
+    display: flex;
+    gap: 10px;
+}

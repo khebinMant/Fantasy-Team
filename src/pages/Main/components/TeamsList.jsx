@@ -24,21 +24,13 @@ const teamsIds =[
 
 export const TeamsList = () => {
 
-  const { dragStart, dragStop, dragMove, onWheel, LeftArrow, RightArrow } = useDrag();
+  const { dragStop, LeftArrow, RightArrow } = useDrag();
   const [teams, setTeams] = useState()
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     getRandomTeams()
   }, []);
-
-  const handleDrag = ({ scrollContainer }) => (ev) =>
-        dragMove(ev, (posDiff) => {
-          if (scrollContainer.current) {
-            scrollContainer.current.scrollLeft += posDiff;
-          }
-    });
-
 
   const getRandomTeams = async ()=>{
     
@@ -51,8 +43,6 @@ export const TeamsList = () => {
     const responses =  await Promise.all( teamsPromises );
     setTeams(responses)
     setIsLoading(false)
-    console.log(responses)
-
   }
 
   return (

@@ -11,11 +11,9 @@ const containerStyle = {
 export const FantasyLayout = ({ children }) => {
   return (
     <div>
-      <NavBar/>
-      <div  style={containerStyle}>
-        {children}
-      </div>
-        {/* <Footer/> */}
+      <NavBar />
+      <div style={containerStyle}>{children}</div>
+      <Footer />
     </div>
   );
 };

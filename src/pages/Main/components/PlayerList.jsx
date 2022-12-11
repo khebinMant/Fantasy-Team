@@ -1,15 +1,14 @@
-import { ScrollMenu } from "react-horizontal-scrolling-menu";
-import { getPlayersByTeam } from "../../../helpers/getPlayersByTeam";
-
 import Box from "@mui/material/Box";
 import useDrag from "../../../hooks/useDrag";
 import Card from "./PlayerCard";
+import { ScrollMenu } from "react-horizontal-scrolling-menu";
+import { getPlayersByTeam } from "../../../helpers/getPlayersByTeam";
+import { useEffect, memo , useState } from "react";
+import { CardListSkeleton } from "../../../components/Skeletons/CardListSkeleton";
+import { NavLink } from "react-router-dom";
+
 import "../../../styles/PlayerList.css";
 import "../../../styles/MainPage.css";
-import { useEffect, useState } from "react";
-import { CardListSkeleton, PlayerListSkeleton } from "../../../components/Skeletons/CardListSkeleton";
-import { NavLink } from "react-router-dom";
-import { Skeleton } from "@mui/material";
 
 const teamsIds = [
   133738,
@@ -47,47 +46,38 @@ const teamsIds = [
   133890, //DNS
 ];
 
-export const PlayerList = () => {
-  const { dragStart, dragStop, dragMove, onWheel, RightArrow, LeftArrow } = useDrag();
-  const [players, setPlayers] = useState();
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    getRandomPlayers();
-  }, []);
-
-  const handleDrag =
-    ({ scrollContainer }) =>
-    (ev) =>
-      dragMove(ev, (posDiff) => {
-        if (scrollContainer.current) {
-          scrollContainer.current.scrollLeft += posDiff;
-        }
-      });
-
-  const getRandomPlayers = async () => {
-    const playersPromises = [];
-    const plyrs = [];
-
-    for (const teamId of teamsIds) {
-      playersPromises.push(getPlayersByTeam(teamId));
-    }
-
-    const responses = await Promise.all(playersPromises);
-
+export const PlayerList = memo(() => {
+  
+    const { dragStop,  RightArrow, LeftArrow } = useDrag();
+    const [players, setPlayers] = useState();
+    const [isLoading, setIsLoading] = useState(true);
+  
+    useEffect(() => {
+      getRandomPlayers();
+    }, []);
     
-    responses.forEach((element) => {
-      element.player.forEach(p => {
-        plyrs.push(p);
+    const getRandomPlayers = async () => {
+      const playersPromises = [];
+      const plyrs = [];
+      
+      for (const teamId of teamsIds) {
+        playersPromises.push(getPlayersByTeam(teamId));
+      }
+      
+      const responses = await Promise.all(playersPromises);
+      
+      
+      responses.forEach((element) => {
+        element.player.forEach(p => {
+          plyrs.push(p);
+        });
       });
-    });
-
-    setPlayers(plyrs);
-    setIsLoading(false);
-    console.log(plyrs);
-  };
-
-  return (
+      
+      setPlayers(plyrs);
+      setIsLoading(false);
+    };
+    
+    return (
     <Box className="player-list-content">
       {isLoading ? (
         <Box style={{ marginBottom: "50px" }}>
@@ -106,15 +96,11 @@ export const PlayerList = () => {
           <div className="players-gallery">
             <div className="test" onMouseLeave={dragStop}>
               <ScrollMenu
-                // onWheel={onWheel}
-                // onMouseDown={() => dragStart}
-                // onMouseUp={() => dragStop}
-                // onMouseMove={handleDrag}
                 RightArrow={RightArrow}
                 LeftArrow={LeftArrow}
               >
                 {players.map((player, index) => (
-                  <NavLink className='avoid-link' to="/player-details" state={player}>
+                  <NavLink key={index} className='avoid-link' to="/player-details" state={player}>
                     <Card
                       {...player}
                       key={index}
@@ -130,4 +116,4 @@ export const PlayerList = () => {
       )}
     </Box>
   );
-};
+});

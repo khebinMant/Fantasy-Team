@@ -15,6 +15,7 @@
     gap: 20px;
 }
 .nav-bar{
+    background-color: #1B0E27;
     -webkit-box-shadow: 10px 11px 37px -6px #020F2A;
     -moz-box-shadow: 10px 11px 37px -6px #020F2A;
     box-shadow: 10px 11px 37px -6px #020F2A;

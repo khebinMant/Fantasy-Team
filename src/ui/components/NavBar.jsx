@@ -3,7 +3,7 @@ import { Menubar } from 'primereact/menubar';
 import { InputText } from 'primereact/inputtext';
 import { useNavigate } from 'react-router-dom';
 import { startLogout } from '../../store/auth/thunks';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Avatar } from 'primereact/avatar';
 import { Menu } from 'primereact/menu';
 import balon from '../../assets/balon.png'
@@ -13,7 +13,6 @@ export const NavBar = () => {
 
   const navigation = useNavigate()
   const dispatch =  useDispatch()
-  const { photoURL } = useSelector( state=> state.auth ) 
   const menu = useRef(null);
 
   const itemsLog = [
@@ -84,8 +83,7 @@ export const NavBar = () => {
     return (
         <div>
             <div className="card">
-                <Menubar className='nav-bar' model={items} start={start} end={end} />
-
+                <Menubar style={{backgroundColor:'#6452CE',color:'#FFFF', fontSize:'15px', fontWeight:'bold'}} model={items} start={start} end={end} />
             </div>
         </div>
     );
