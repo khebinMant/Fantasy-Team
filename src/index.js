@@ -9,14 +9,16 @@ import "primereact/resources/themes/bootstrap4-dark-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import "animate.css";
+import App from "./App";
+import { createRoot } from "react-dom/client";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = createRoot(
+  document.getElementById("root") || document.createElement("div")
+);
 root.render(
   // <React.StrictMode>
-  <Provider store={store}>
-    <BrowserRouter>
-      <MainRouter />
-    </BrowserRouter>
-  </Provider>
+
+  <App />
+
   // </React.StrictMode>
 );
