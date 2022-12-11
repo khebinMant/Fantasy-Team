@@ -37,11 +37,7 @@ export const LeaguesList = () => {
         <Box style={{ marginBottom: "50px" }}>
           <h1>Ligas</h1>
           <hr/>
-          <div className="players-gallery">
-            <div className="test" onMouseLeave={dragStop}>
-              <CardListSkeleton></CardListSkeleton>
-            </div>
-          </div>
+          <CardListSkeleton></CardListSkeleton>
         </Box>
       : (
         <Box style={{ marginBottom: "50px" }}>
