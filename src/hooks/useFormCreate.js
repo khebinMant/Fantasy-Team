@@ -40,6 +40,7 @@ export const useFormCreate = () => {
             captain: null,
             rating: null,
             image: cover,
+            alignment:null
           };
           dispatch(startFantasyTeam(newFantasyTeam));
           formik.resetForm();

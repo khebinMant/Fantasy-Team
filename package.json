@@ -15,6 +15,7 @@
     "color.js": "^1.2.0",
     "firebase": "^9.14.0",
     "formik": "^2.2.9",
+    "immutability-helper": "^3.1.1",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "primeicons": "^6.0.1",
@@ -44,7 +45,9 @@
     ]
   },
   "jest": {
-    "transformIgnorePatterns": ["node_modules/(?!axios)/"]
+    "transformIgnorePatterns": [
+      "node_modules/(?!axios)/"
+    ]
   },
   "browserslist": {
     "production": [

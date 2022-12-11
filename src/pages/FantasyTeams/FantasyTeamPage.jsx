@@ -3,6 +3,7 @@ import { FantasyLayout } from "../../ui/FantasyLayout";
 import { TabView, TabPanel } from "primereact/tabview";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { HTML5Backend } from 'react-dnd-html5-backend'
 
 import "../../styles/FantasyTeams.css";
 import { Dropdown } from "primereact/dropdown";
@@ -15,7 +16,8 @@ import {
 } from "../../store/fantasy/thunks";
 import { useForm } from "../../hooks/useFormEdit";
 import { Rating } from "primereact/rating";
-import cancha from '../../assets/cancha.jpg'
+import { DndProvider } from "react-dnd";
+import { PlayersLineUp } from "./components/PlayersLineUp";
 
 
 export const FantasyTeamPage = () => {
@@ -30,7 +32,6 @@ export const FantasyTeamPage = () => {
     const [formValues] = useState({newName: "",newDescription: "",});
     const { fantasyTeams } = useSelector((state) => state.fantasy);
     const { newName, newDescription, onInputChange } = useForm(formValues);
-    const [indexPlayer, setIndexPlayer] = useState()
 
     const handleRemovePlayer = (playerId) => {
        dispatch(startDeletePlayerFromTeam(playerId, team.id));
@@ -72,6 +73,14 @@ export const FantasyTeamPage = () => {
       dispatch(startUpdateFantasyTeam(updatedTeam, team.id));
       setEditTeam(false);
     };
+
+    const saveLineUp = (boxes)=>{
+      const newTeamAligment = {
+        ...team,
+        alignment:boxes
+      }
+      dispatch(startUpdateFantasyTeam(newTeamAligment,team.id))
+    }
 
   return (
     <FantasyLayout>
@@ -213,8 +222,10 @@ export const FantasyTeamPage = () => {
             <TabView>
               <TabPanel header="Alineación" >
                 <div className="cancha-container">
-                    <img alt="cancha" src={cancha} className="lineup"/>
-                    <p style={{position:'absolute', top:'0', left:'0'}}>iosdjaispdj</p>
+                  <DndProvider backend={HTML5Backend}>
+                        <PlayersLineUp players={team.players} saveLineUp={saveLineUp} alignment={team.alignment}/>
+                      {/* <img alt="cancha" src={} className="lineup"/> */}
+                  </DndProvider>
                 </div>
               </TabPanel>
             </TabView>

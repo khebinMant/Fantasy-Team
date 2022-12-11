@@ -24,7 +24,7 @@ export const fantasySlice = createSlice({
       //     captain:null,//id del jugador ,
       //     rating:null,
       //     image:null,
-      //     alignment:[]
+      //     alignment:{}//Alineación
       // }
     ],
     activeFantasyTeam: null, //obejto del fantasy team actual seleccionado,
