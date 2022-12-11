@@ -27,9 +27,17 @@ export const fantasySlice = createSlice({
       //     alignment:[]
       // }
     ],
-    activeFantasyTeam: null, //obejto del fantasy team actual seleccionado
+    activeFantasyTeam: null, //obejto del fantasy team actual seleccionado,
+    searchedPlayer:"ronaldo",
+    searchedTeam:"a"
   },
   reducers: {
+    setSearchedPlayer : (state, {payload})=>{
+      state.searchedPlayer = payload
+    },
+    setSearchedTeam : (state, {payload})=>{
+      state.searchedTeam = payload
+    },
     setIsCreatingNewFantasyTeam: (state) => {
       state.isSaving = true;
     },
@@ -84,6 +92,8 @@ export const fantasySlice = createSlice({
 });
 // Action creators are generated for each case reducer function
 export const {
+  setSearchedPlayer,
+  setSearchedTeam,
   setIsCreatingNewFantasyTeam,
   setActiveFantasyTeam,
   setUserInfo,

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { FantasyLayout } from '../../ui/FantasyLayout';
 import '../../styles/FantasyTeams.css'
 import { FantasyTeamCard } from './FantasyTeamCard';
+import { AddFantasyTeam } from './components/AddFantasyTeam';
 
 
 
@@ -20,6 +21,7 @@ export const FantasyTeamsPage = () => {
                 <FantasyTeamCard key={index} team={team}/>
               ))
             }
+            <AddFantasyTeam/>
             </Grid>
           </Box>
     </div>

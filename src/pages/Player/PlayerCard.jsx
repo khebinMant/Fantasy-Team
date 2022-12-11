@@ -1,16 +1,9 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
-import { getPlayer } from "../../../helpers/getPlayer";
 
-const Card = ({ strPlayer,strTeam,idPlayer,strRender,strThumb }) => {
+const CardP = ({ strPlayer,strTeam,idPlayer,strRender,strThumb }) => {
 
-
-  const navigation = useNavigate()
 
   return (
-      <div className="card-container"
-        onClick={()=>navigation(`player/${idPlayer}`)}
-      >
+      <div className="card-container">
         <div className="card">
           <div className="front">
             <img alt={strPlayer} src={strThumb!==null?strThumb:'https://hoqueisobregrama.com.br/wp-content/uploads/1991/04/profile_player.png'} className="image-card" />
@@ -26,4 +19,4 @@ const Card = ({ strPlayer,strTeam,idPlayer,strRender,strThumb }) => {
   );
 };
 
-export default Card;
+export default CardP;

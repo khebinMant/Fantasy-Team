@@ -48,12 +48,11 @@
     height: 50%;
 }
 .information{
+    width: auto;
     position: relative;
 }
 .team-image-info{
-    top: 0;
-    right: 0;
-    position: absolute;
+    border-radius: 10px;
     width: 100px;
     height: 100px;
     object-fit: scale-down;
@@ -68,7 +67,7 @@
     gap: 15px;
     border-width: 1px;
     border-color: #343E4D;
-    width: 30rem;
+    width: auto;
     height: 4em;
 }
 .name-player{
@@ -101,10 +100,25 @@
     width: 330px;
     object-fit: cover;
 }
+.image-cover-add{
+    cursor: pointer;
+    width: 200px;
+    width: 200px;
+    margin-top: 60px;
+    margin-left: 60px;
+    opacity: 0.2;
+    transition: opacity 0.2s, visibility .2s ease-out 100ms
+}
+
+.image-cover-add:hover{
+    opacity: 1.0;
+    transition: opacity 1s, visibility .2s ease-out 100ms
+}
 
 @media only screen and (max-width: 600px) {
     .team-page{
         flex-direction: column;
+        margin-top: 250px;
     }
     .ft-container{
         margin-top: 250px;
@@ -112,4 +126,8 @@
     .arena-side{
         width: 350px;
     }
+    .edit-side{
+        margin-top: 80px;
+    }
+    
 }

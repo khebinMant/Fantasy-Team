@@ -10,9 +10,10 @@ import { FantasyTeamPage } from "../pages/FantasyTeams/FantasyTeamPage";
 import { FantasyTeamsPage } from "../pages/FantasyTeams/FantasyTeamsPage";
 import { LeaguePage, LeaguesPages } from "../pages/League/LeaguePage";
 import { MainPage } from "../pages/Main/MainPage";
-import { PlayerPage } from "../pages/Player/PlayerPage";
+import PlayerPage from "../pages/Player/PlayerPage";
+import { SearchPlayerPage } from "../pages/SearchPlayer/SearchPlayerPage";
+import { SearchTeamPage } from "../pages/SearchTeam/SearchTeamPage";
 import { TeamPage } from "../pages/Team/TeamsPage";
-import PlayerDetails from "../pages/PlayerDetails/PlayerDetails";
 
 export const MainRouter = () => {
   const { status } = useCheckOut();
@@ -32,9 +33,10 @@ export const MainRouter = () => {
                         <Route path='/fantasy-teams' element={<FantasyTeamsPage/>}/>
                         <Route path='/league/:leagueId' element={<LeaguePage/>}/>
                         <Route path='/team/:teamId' element={<TeamPage/>}/>
-                        <Route path='/player/:playerId' element={<PlayerPage/>}/>
                         <Route path='/fantasy-team/:fantasyTeamId' element={<FantasyTeamPage/>}/>
-                        <Route path="/player-details" element={<PlayerDetails />} />
+                        <Route path="/player/:playerId" element={<PlayerPage />} />
+                        <Route path="/search-players" element={<SearchPlayerPage />} />
+                        <Route path="/search-teams" element={<SearchTeamPage />} />
                     </>
                     :
                     <Route path='/auth/' element={<LoginRegisterPage/>}/>

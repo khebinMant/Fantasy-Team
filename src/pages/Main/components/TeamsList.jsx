@@ -61,10 +61,6 @@ export const TeamsList = () => {
         <div className="players-gallery">
           <div onMouseLeave={dragStop}>
             <ScrollMenu
-              // onWheel={onWheel}
-              // onMouseDown={() => dragStart}
-              // onMouseUp={() => dragStop}
-              // onMouseMove={handleDrag}
               RightArrow={RightArrow}
               LeftArrow={LeftArrow}
             >

@@ -7,6 +7,7 @@ import { getPlayersByTeam } from '../../helpers/getPlayersByTeam'
 import { getTeam } from '../../helpers/getTeam'
 import { Button } from 'primereact/button';
 import '../../styles/LeaguePage.css'
+import { CheckingAuth } from '../../components/CheckingAuth';
 
 export const TeamPage = () => {
 
@@ -60,7 +61,7 @@ export const TeamPage = () => {
     <FantasyLayout>
     {
         isLoading?
-        <p>Estoy cargando</p>
+        <CheckingAuth/>
         :
         <div className='league-page'>
           <div className='league-card-container'>

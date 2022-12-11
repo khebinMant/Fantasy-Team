@@ -96,14 +96,12 @@ export const PlayerList = memo(() => {
                 LeftArrow={LeftArrow}
               >
                 {players.map((player, index) => (
-                  <NavLink key={index} className='avoid-link' to="/player-details" state={player}>
                     <Card
                       {...player}
                       key={index}
                       className="card-container"
                       back="atras"
                     />
-                  </NavLink>
                 ))}
               </ScrollMenu>
             </div>

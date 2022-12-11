@@ -24,7 +24,7 @@ export const FantasyTeamPage = () => {
     const params = useParams();
     const dispatch = useDispatch();
     const [team, setTeam] = useState(null);
-    const [selectedCaptain, setSelectedCaptain] = useState();
+    const [selectedCaptain, setSelectedCaptain] = useState("");
     const [editTeam, setEditTeam] = useState(false);
     const [cover, setCover] = useState("");
     const [raiting, setRaiting] = useState(null);
@@ -61,16 +61,16 @@ export const FantasyTeamPage = () => {
     }
 
     const handleUpdateTeam = () => {
-        const updatedTeam = {
-            ...team,
-            name: newName,
-            rating: raiting,
-            description: newDescription,
-            captain: selectedCaptain,
-            image: cover === "" ? team.image : cover,
-        };
-        dispatch(startUpdateFantasyTeam(updatedTeam, team.id));
-        setEditTeam(false);
+      const updatedTeam = {
+        ...team,
+        name: newName === ""? team.name:newName,
+        rating: raiting,
+        description: newDescription === ""? team.description: newDescription,
+        captain: selectedCaptain.strPlayer ===""? team.selectedCaptain: selectedCaptain.strPlayer,
+        image: cover === "" ? team.image : cover,
+      };
+      dispatch(startUpdateFantasyTeam(updatedTeam, team.id));
+      setEditTeam(false);
     };
 
   return (
@@ -128,7 +128,7 @@ export const FantasyTeamPage = () => {
                         value={selectedCaptain}
                         onChange={onCaptainChange}
                         options={team.players}
-                        optionLabel="number"
+                        optionLabel="strPlayer"
                         placeholder="Selecciona el capitán"
                       />
                     </span>
@@ -154,7 +154,7 @@ export const FantasyTeamPage = () => {
                       <h2> {team.rating}</h2>
                       <img
                         className="team-image-info"
-                        alt={team.name}
+                        alt=""
                         src={team.image}
                       />
                     </div>
@@ -164,7 +164,7 @@ export const FantasyTeamPage = () => {
                     </p>
                     <span>
                       <p style={{ display: "inline", marginRight: "5px" }}>
-                        <b>Capitán: </b>Fulanito de tal{" "}
+                        <b>Capitán: </b>{team.captain}
                       </p>
                     </span>
                     <div className="edit-cancel-buttons">
@@ -178,10 +178,6 @@ export const FantasyTeamPage = () => {
                 )}
               </TabPanel>
               <TabPanel header="Jugadores">
-                <div className="player-ft">
-                  <span className="name-player">Número</span>
-                  <span className="name-player">Nombre</span>
-                </div>
                 {team.players.map((player) => (
                   <PlayersFT
                     key={player.id}

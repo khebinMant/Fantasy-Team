@@ -8,6 +8,7 @@ import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
 
 import '../../styles/LeaguePage.css'
+import { CheckingAuth } from '../../components/CheckingAuth'
 
 export const LeaguePage = () => {
 
@@ -60,7 +61,7 @@ export const LeaguePage = () => {
     <FantasyLayout>
       {
         isLoading?
-        <p>Estoy cargando</p>
+        <CheckingAuth/>
         :
         <div className='league-page'>
           <div className='league-card-container'>
