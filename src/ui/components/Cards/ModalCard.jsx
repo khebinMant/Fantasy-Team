@@ -27,7 +27,7 @@ const ModalCard = () => {
   ];
 
   return (
-    <div className="mapCardContainer">
+    <div className=" mapCardContainer">
       <ScrollMenu>
         {data.map((item) => (
           <div className="card-container">
@@ -39,7 +39,7 @@ const ModalCard = () => {
               <div className="back2">
                 <div className="products-txtB">{item.Description}</div>
                 <div className="iconCardContainer">
-                  <a href={"https://www.w3schools.com"}>
+                  <a href={"https://www.facebook.com"}>
                     <AiFillFacebook size={30} color="white" />
                   </a>
                   <a href={item.linked}>

@@ -71,13 +71,13 @@ export const Footer = () => {
           <div className="contactRow">
             <GrMail size={22} color="white" />
             <a href="mailto:davsh47@hotmail.com">
-              <span>mail2@mail.com</span>
+              <span>mantillagka@mail.com</span>
             </a>
           </div>
           <div className="contactRow">
             <GrMail size={22} color="white" />
             <a href="mailto:davsh47@hotmail.com">
-              <span>mail2@mail.com</span>
+              <span>davsh47@hotmail.com</span>
             </a>
           </div>
         </div>

@@ -169,8 +169,8 @@ export const NavBar = () => {
           contentLabel="Minimal Modal Example"
           className="modal"
         >
-          <div className="modalBox">
-            <div className="cardModalContainer">
+          <div className="animate__animated animate__bounceIn modalBox">
+            <div className=" cardModalContainer">
               <ModalCard />
             </div>
             <Button
