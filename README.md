@@ -69,9 +69,13 @@ Y por su puesto crear tus equipos de fantasia.
 ### 🔨 Built with
 
 - [![React][react.js]][react-url]
-- [![Prime][primereact.js]][prime-url]
 - [![CSS][css.js]][css-url]
 - [![HTML][html.js]][html-url]
+- [![Prime][primereact.js]](https://www.primefaces.org/primereact/confirmdialog/)
+- [The Sport DB](https://www.thesportsdb.com/api.php/)
+- [React DND](https://react-dnd.github.io/react-dnd/about)
+- [Animate Style](https://animate.style/)
+
 
 <!-- GETTING STARTED -->
 
