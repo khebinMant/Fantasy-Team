@@ -75,6 +75,11 @@ Y por su puesto crear tus equipos de fantasia.
 - [![SportDB][sportapi.js]][sportapi-url]
 - [![ReactDnD][reactdnd.js]][reactdnd-url]
 - [![Animation][funimation.js]][funimation-url]
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Axios](https://axios-http.com/docs/intro)
+- [Firebase](https://firebase.google.com/?hl=es-419&gclid=EAIaIQobChMIl7XxtK70-wIVxZ2GCh2k6w-QEAAYASAAEgJISvD_BwE&gclsrc=aw.ds)
+- [Vercel](https://vercel.com/docs/cli)
+- [Prominent](https://www.npmjs.com/package/color-js)
 
 <!-- GETTING STARTED -->
 
@@ -221,7 +226,7 @@ Video Demostration Link: [FantasyTeam](https://drive.google.com/file/d/1zUQmosAk
 [usage2-screenshot]: ./src/assets/usage2.gif
 
 <!-- BADGES -->
-
+[redux.js]: https://d33wubrfki0l68.cloudfront.net/0834d0215db51e91525a25acf97433051f280f2f/c30f5/img/redux.svg
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
 [funimation.js]: https://img.shields.io/badge/AnimateCSS-5B0BB5?logo=Funimation&logoColor=61DAFB
