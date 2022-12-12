@@ -7,7 +7,7 @@
 
   <h1 align="center">Fantasy Team</h1>
 
-<img src="https://img.shields.io/badge/MADEWITH-React-1572B6?style=for-the-badge&logo=React" height="35" />
+<img src="https://img.shields.io/badge/MADEWITH-React-1572B6?style=for-the-badge&logo=React" height="35"  />
 <img src="https://forthebadge.com/images/badges/built-with-love.svg" height="35" />
 
   <p align="center">
@@ -72,10 +72,9 @@ Y por su puesto crear tus equipos de fantasia.
 - [![CSS][css.js]][css-url]
 - [![HTML][html.js]][html-url]
 - [![Prime][primereact.js]](https://www.primefaces.org/primereact/confirmdialog/)
-- [The Sport DB](https://www.thesportsdb.com/api.php/)
-- [React DND](https://react-dnd.github.io/react-dnd/about)
-- [Animate Style](https://animate.style/)
-
+- [![SportDB][sportapi.js]][sportapi-url]
+- [![ReactDnD][reactdnd.js]][reactdnd-url]
+- [![Animation][funimation.js]][funimation-url]
 
 <!-- GETTING STARTED -->
 
@@ -186,8 +185,8 @@ Project Link: [FantasyTeam](https://github.com/khebinSd/Fantasy-Team)
 <table>
     <tbody>
         <tr>
-        <td align="center"><a href="https://github.com/khebinSd/Fantasy-Team"><img src="https://avatars.githubusercontent.com/u/33032880?v=4?s=100" width="100px;" alt="Yuval Hazaz"/><br /><sub><b>Kevin Mantilla</b></sub></a><br /><a href="https://github.com/khebinSd/Fantasy-Team" title="Code">💻</a></td>
-        <td align="center"><a href="https://github.com/khebinSd/Fantasy-Team"><img src="https://avatars.githubusercontent.com/u/91855669?v=4?s=100" width="100px;" alt="Yuval Hazaz"/><br /><sub><b>David Lozada</b></sub></a><br /><a href="https://github.com/khebinSd/Fantasy-Team" title="Code">💻</a></td>
+        <td align="center"><a href="https://github.com/khebinSd/"><img src="https://avatars.githubusercontent.com/u/33032880?v=4?s=100" width="100px;" alt="Yuval Hazaz"/><br /><sub><b>Kevin Mantilla</b></sub></a><br /><a href="https://github.com/khebinSd/" title="Code">💻</a></td>
+        <td align="center"><a href="https://github.com/DashCode47/"><img src="https://avatars.githubusercontent.com/u/91855669?v=4?s=100" width="100px;" alt="Yuval Hazaz"/><br /><sub><b>David Lozada</b></sub></a><br /><a href="https://github.com/khebinSd/" title="Code">💻</a></td>
         </tr>
     </tbody>
 </table>
@@ -209,17 +208,26 @@ Project Link: [FantasyTeam](https://github.com/khebinSd/Fantasy-Team)
 [product-screenshot]: ./src/assets/Animation2.gif
 [usage-screenshot]: ./src/assets/usage1.gif
 [usage2-screenshot]: ./src/assets/usage2.gif
+
+<!-- BADGES -->
+
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
-[primereact.js]: https://img.shields.io/badge/-Prime-blue?logo=RuboCop
+[funimation.js]: https://img.shields.io/badge/AnimateCSS-5B0BB5?logo=Funimation&logoColor=61DAFB
+[funimation-url]: https://animate.style
+[reactdnd.js]: https://img.shields.io/badge/ReactDnD-20232A?style=for-the-badge&logo=CreateReactApp&logoColor=61DAFB
+[reactdnd-url]: https://react-dnd.github.io/react-dnd/about
+[primereact.js]: https://img.shields.io/badge/-Prime-blue?style=for-the-badge&logo=RuboCop
 [prime-url]: https://www.primefaces.org/primereact//
+[sportapi.js]: https://img.shields.io/badge/-SportsDB-E73C00?style=for-the-badge&logo=MonoGames&logoColor=61DAFB
+[sportapi-url]: https://www.thesportsdb.com/api.php/
 [builtwith.js]: https://forthebadge.com/images/badges/built-with-love.svg
 [builtwith-url]: https://forthebadge.com
 [madewith.js]: https://img.shields.io/badge/MADEWITH-React-1572B6?style=for-the-badge&logo=React&logoHeight=80
 [madewith-url]: https://forthebadge.com
-[css.js]: https://img.shields.io/badge/-CSS-1572B6?logo=CSS3
+[css.js]: https://img.shields.io/badge/-CSS-1572B6?style=for-the-badge&logo=CSS3
 [css-url]: https://developer.mozilla.org/es/docs/Web/CSS
-[html.js]: https://img.shields.io/badge/-HTML-ECD53F?logo=HTML5
+[html.js]: https://img.shields.io/badge/-HTML-ECD53F?style=for-the-badge&logo=HTML5
 [html-url]: https://www.w3schools.com/html
 [linkedin.js]: https://img.shields.io/badge/-LinkedIn-ECD53F?logo=LinkedIn
 [linkedin-url]: www.linkedin.com/in/david-lozada471

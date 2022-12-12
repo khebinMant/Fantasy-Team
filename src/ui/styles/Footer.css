@@ -51,6 +51,16 @@
     gap: 10px;
 }
 
+.contactRow{
+    text-decoration: none;
+   color: white;
+}
+
+.contactRow>a{
+    text-decoration: none;
+    color: white;
+}
+
 
 
 @media only screen and (max-width: 600px) {
@@ -60,5 +70,20 @@
     .footerContainer{
         font-size: 10px;
     }
+
+    .footerTopBox{
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footerBotBox{
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    
 }
 

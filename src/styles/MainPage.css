@@ -74,7 +74,7 @@
 }
 .image-card{
     width: 100%;
-    object-fit: scale-down;
+    object-fit:scale-down;
     height: 100%;
     -webkit-user-drag: none;
     -khtml-user-drag: none;
@@ -134,7 +134,7 @@
     transition: 1.5s ease-in-out;
     display: flex;
     flex-direction: column;
-    justify-content: initial;
+    justify-content: center;
     align-items: center;
     border-radius: 20px;
     background-image: url(../assets/cardAnim.gif);
