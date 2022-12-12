@@ -46,7 +46,7 @@ export const TeamsList = () => {
   }
 
   return (
-    <Box className="player-list-content">
+    <Box className="player-list-content animate__animated animate__fadeInLeft">
     {
       isLoading?
         <Box style={{ marginBottom: "50px" }}>

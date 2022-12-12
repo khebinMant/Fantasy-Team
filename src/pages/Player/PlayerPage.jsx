@@ -73,7 +73,7 @@ const PlayerPage = () => {
           isLoading?
           <CheckingAuth/>
           :
-          <div className="player-page">
+          <div className="player-page animate__animated animate__fadeIn">
           <div className="playerDetailsContainer">
               <div>
                 <CardP {...player} />

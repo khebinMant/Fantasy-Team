@@ -95,7 +95,7 @@ export const FantasyTeamPage = () => {
       {team === null ? (
         <CheckingAuth/>
       ) : (
-        <div style={{marginTop:'100px'}} className="team-page">
+        <div style={{marginTop:'100px'}} className="team-page animate__animated animate__fadeIn">
           <div className="edit-side">
             <TabView>
               <TabPanel header="Información">

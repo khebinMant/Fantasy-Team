@@ -78,7 +78,7 @@ export const PlayerList = memo(() => {
     };
     
     return (
-    <Box className="player-list-content">
+    <Box className="player-list-content  animate__animated animate__fadeInLeft">
       {isLoading ? (
         <Box style={{ marginBottom: "50px" }}>
           <h1>Jugadores</h1>

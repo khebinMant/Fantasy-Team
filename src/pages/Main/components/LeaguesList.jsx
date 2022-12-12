@@ -32,7 +32,7 @@ export const LeaguesList = () => {
   };
 
   return (
-    <Box className="player-list-content">
+    <Box className="player-list-content animate__animated animate__fadeInLeft">
       {isLoading ?  
         <Box style={{ marginBottom: "50px" }}>
           <h1>Ligas</h1>

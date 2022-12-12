@@ -59,7 +59,7 @@ export const LeaguePage = () => {
         isLoading?
         <CheckingAuth/>
         :
-        <div className='league-page'>
+        <div className='league-page  animate__animated animate__fadeIn'>
           <div className='league-card-container'>
             </div>
             <div className='league-info-container'>

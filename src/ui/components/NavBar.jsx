@@ -48,6 +48,10 @@ export const NavBar = () => {
       {
           label: 'Mis equipos',
           command:()=> {navigation('/fantasy-teams')}
+      },
+      {
+          label: 'Crear Equipo',
+          command:()=> {navigation('/create-fantasy')}
       }
   ];
 
