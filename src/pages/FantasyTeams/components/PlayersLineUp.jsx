@@ -5,6 +5,7 @@ import { Box } from './Box'
 import { ItemTypes } from './ItemTypes';
 import cancha from '../../../assets/cancha.png'
 import { Button } from "primereact/button";
+import { useSelector } from 'react-redux';
 
 const styles = {
   color:'black',
@@ -16,33 +17,23 @@ const styles = {
   backgroundRepeat:'no-repeat'
 }
 
-export const PlayersLineUp = ({players, saveLineUp, alignment}) => {
-
+export const PlayersLineUp = ({players, saveLineUp, alignment, team}) => {
 
   const [boxes, setBoxes] = useState({})
+  const { fantasyTeams } = useSelector((state) => state.fantasy);
 
   useEffect(() => {
     fillBoxesWithPlayers()
-  }, [players]);
+  }, [players,fantasyTeams]);
 
   const fillBoxesWithPlayers = ()=>{
 
     if(alignment!==null){
-      setBoxes(alignment)
-    }
-    else{
-      const newBoxes = {}
-  
-      players.forEach(player => {
-        let top = Math.random() * (490 - 10) + 10;
-        let left = Math.random() * (260 - 10) + 10;
-  
-        newBoxes[player.strPlayer] = {
-          top:top, left:left, title:player.strPlayer, img:player.strThumb
-        }
+      fantasyTeams.forEach(ft => {
+          if(ft.id === team.id){
+            setBoxes(ft.alignment)
+          }
       });
-  
-      setBoxes(newBoxes)
     }
   }
 

@@ -25,10 +25,6 @@ export const TeamPage = () => {
 
     const responsePlayers = await Promise.resolve( getPlayersByTeam(params.teamId) );
     const responseTeam =  await Promise.resolve( getTeam(params.teamId) )
-
-    console.log(responsePlayers.player)
-    console.log(responseTeam.teams[0])
-
     setPlayers(responsePlayers.player)
     setTeam(responseTeam.teams[0])
     setIsLoading(false)

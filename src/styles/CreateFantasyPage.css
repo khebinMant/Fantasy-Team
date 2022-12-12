@@ -28,4 +28,7 @@
         width: 100%;
         min-width: 0;
     }
+    .form{
+        margin-top: 200px;
+    }
 }

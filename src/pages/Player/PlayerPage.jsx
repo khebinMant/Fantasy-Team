@@ -1,12 +1,13 @@
 import { FantasyLayout } from "../../ui/FantasyLayout";
 import { Link, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Dropdown } from "primereact/dropdown";
 import { useDispatch, useSelector } from "react-redux";
 import { startSavePlayerToTeam } from "../../store/fantasy/thunks";
 import { getPlayer } from "../../helpers/getPlayer";
 import { CheckingAuth } from "../../components/CheckingAuth";
 import { Button } from 'primereact/button';
+import { Toast } from 'primereact/toast';
 
 import CardP from "./PlayerCard";
 import "./PlayerDetails.css";
@@ -22,7 +23,8 @@ const PlayerPage = () => {
   const params =  useParams();
   const [hasFt, setHasFt] = useState(false)
   const [fantasyTeam, setFantasyTeam] = useState()
-  
+  const toast = useRef(null);
+
   useEffect(() => {
     getPlayerById()
   }, []);
@@ -40,7 +42,6 @@ const PlayerPage = () => {
             if(pl.idPlayer === player.idPlayer){
               setFantasyTeam(ft)
               setHasFt(true)
-              console.log('ya pertenece a un equipo')
             }
         });
       });
@@ -49,7 +50,6 @@ const PlayerPage = () => {
 
   const getPlayerById = async()=>{
     const response =  await Promise.resolve( getPlayer( params.playerId ) );
-    console.log(response)
     setPlayer(response.players[0])
     setIsLoading(false)
   }
@@ -62,10 +62,12 @@ const PlayerPage = () => {
   const savePlayerOnFt = () => {
     dispatch(startSavePlayerToTeam(player, fantasySelected.id))
     setHasFt(true)
+    toast.current.show({severity:'success', summary: '¡Agregado!', detail:`${player.strPlayer} ha sido agregado al equipo ${fantasySelected.name}`, life: 3000});
   };
 
   return (
     <FantasyLayout>
+      <Toast ref={toast} />
       <>
         {
           isLoading?
@@ -108,9 +110,7 @@ const PlayerPage = () => {
                   <span><b>Equipo de Fantasia </b></span>
                   {
                     hasFt && fantasyTeam?
-                    <p>
-                      <Link to={`/fantasy-team/${fantasyTeam.id}`}>{fantasyTeam.name}</Link>
-                    </p>
+                    <Link to={`/fantasy-team/${fantasyTeam.id}`}>{fantasyTeam.name}</Link>
                     :
                     <>
                       <div className="dropDownRowContainer">

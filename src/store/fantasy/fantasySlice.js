@@ -52,7 +52,6 @@ export const fantasySlice = createSlice({
       state.isSaving = false;
     },
     updateFantasyTeam: (state, action) => {
-      console.log(action);
       state.isSaving = false;
       state.fantasyTeams = state.fantasyTeams.map((fanteam) => {
         if (action.payload.id === fanteam.id) {
@@ -80,10 +79,26 @@ export const fantasySlice = createSlice({
         return fanteam;
       });
     },
+    setPlayerOnAligment: (state, action) => {
+      state.fantasyTeams = state.fantasyTeams.map((fanteam) => {
+        if (action.payload.id === fanteam.id) {
+          fanteam.alignment = action.payload.newAligment
+        }
+        return fanteam;
+      });
+    },
     deletePlayerFromTeam: (state, action) => {
       state.fantasyTeams = state.fantasyTeams.map((fanteam) => {
         if (action.payload.teamId === fanteam.id) {
             fanteam.players.splice(fanteam.players.findIndex(player => player.idPlayer === action.payload.playerId),1)
+        }
+        return fanteam;
+      });
+    },
+    deletePlayerFromAligment: (state, action) => {
+      state.fantasyTeams = state.fantasyTeams.map((fanteam) => {
+        if (action.payload.teamId === fanteam.id) {
+          fanteam.alignment = action.payload.newAligment
         }
         return fanteam;
       });
@@ -103,4 +118,6 @@ export const {
   setFantasyTeams,
   setPlayerOnFantasyTeam,
   deletePlayerFromTeam,
+  setPlayerOnAligment,
+  deletePlayerFromAligment
 } = fantasySlice.actions;

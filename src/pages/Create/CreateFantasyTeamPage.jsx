@@ -24,6 +24,7 @@ export const CreateFantasyTeamPage = () => {
     cover,
     isFormFieldValid
   } = useFormCreate();
+  
 
   return (
     <FantasyLayout>
@@ -38,16 +39,12 @@ export const CreateFantasyTeamPage = () => {
           style={{ width: "30vw" }}
         >
           <div className="flex align-items-center flex-column pt-6 px-3">
-            <i
-              className="pi pi-check-circle"
-              style={{ fontSize: "5rem", color: "var(--green-500)" }}
-            ></i>
-            <h5>Registration Successful!</h5>
-            <p style={{ lineHeight: 1.5, textIndent: "1rem" }}>
-              Your account is registered under name <b>{formData.name}</b> ;
-              it'll be valid next 30 days without activation. Please check{" "}
-              <b>{formData.email}</b> for activation instructions.
-            </p>
+              <i
+                className="pi pi-check-circle"
+                style={{ textAlign:'center', marginTop:"20px", fontSize: "4rem", color: "var(--green-500)" }}
+              ></i>
+              <h2  style={{ textAlign:'center'}}>Equipo creado satisfactoriamente</h2>
+              <h1 style={{textAlign:'center'}}> 😎😎 </h1>
           </div>
         </Dialog>
 
@@ -73,7 +70,7 @@ export const CreateFantasyTeamPage = () => {
                       "p-error": isFormFieldValid("name"),
                     })}
                   >
-                    Name*
+                    Nombre*
                   </label>
                 </span>
                 {getFormErrorMessage("name")}
@@ -96,7 +93,7 @@ export const CreateFantasyTeamPage = () => {
                       "p-error": isFormFieldValid("description"),
                     })}
                   >
-                    Description*
+                    Descripción*
                   </label>
                 </span>
                 {getFormErrorMessage("description")}

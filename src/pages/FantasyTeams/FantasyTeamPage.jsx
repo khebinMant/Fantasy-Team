@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FantasyLayout } from "../../ui/FantasyLayout";
 import { TabView, TabPanel } from "primereact/tabview";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { HTML5Backend } from 'react-dnd-html5-backend'
+import { Toast } from 'primereact/toast';
 
 import "../../styles/FantasyTeams.css";
 import { Dropdown } from "primereact/dropdown";
@@ -18,6 +19,7 @@ import { useForm } from "../../hooks/useFormEdit";
 import { Rating } from "primereact/rating";
 import { DndProvider } from "react-dnd";
 import { PlayersLineUp } from "./components/PlayersLineUp";
+import { CheckingAuth } from "../../components/CheckingAuth";
 
 
 export const FantasyTeamPage = () => {
@@ -32,15 +34,26 @@ export const FantasyTeamPage = () => {
     const [formValues] = useState({newName: "",newDescription: "",});
     const { fantasyTeams } = useSelector((state) => state.fantasy);
     const { newName, newDescription, onInputChange } = useForm(formValues);
+    const toastAlignment = useRef(null);
+    const toastInfo = useRef(null);
 
-    const handleRemovePlayer = (playerId) => {
-       dispatch(startDeletePlayerFromTeam(playerId, team.id));
+    const handleRemovePlayer = (playerId,strPlayer) => {
+       dispatch(startDeletePlayerFromTeam(playerId, team.id, strPlayer));
     };
+
+    const saveLineUp = (boxes)=>{
+      const newTeamAligment = {
+        ...team,
+        alignment:boxes
+      }
+      dispatch(startUpdateFantasyTeam(newTeamAligment,team.id))
+      toastAlignment.current.show({severity:'info', summary: 'Genial!', detail:'Tu alineación se ha guardado', life: 3000});
+    }
 
     useEffect(() => {
         const item = getItem(params.fantasyTeamId);
         setTeam(item);
-    }, [editTeam, handleRemovePlayer]);
+    }, [editTeam, handleRemovePlayer, saveLineUp]);
 
     const getItem = (id) => {
         const team = fantasyTeams.find((team) => team.id === id);
@@ -72,20 +85,15 @@ export const FantasyTeamPage = () => {
       };
       dispatch(startUpdateFantasyTeam(updatedTeam, team.id));
       setEditTeam(false);
+      toastAlignment.current.show({severity:'info', summary: '!Actualizado!', detail:'Información del equipo guardada', life: 3000});
     };
-
-    const saveLineUp = (boxes)=>{
-      const newTeamAligment = {
-        ...team,
-        alignment:boxes
-      }
-      dispatch(startUpdateFantasyTeam(newTeamAligment,team.id))
-    }
 
   return (
     <FantasyLayout>
+      <Toast ref={toastAlignment} />
+      <Toast ref={toastInfo} />
       {team === null ? (
-        <p>cargando</p>
+        <CheckingAuth/>
       ) : (
         <div style={{marginTop:'100px'}} className="team-page">
           <div className="edit-side">
@@ -123,7 +131,6 @@ export const FantasyTeamPage = () => {
                         )}
                       </div>
                     </div>
-                    <p>
                       <InputTextarea
                         name="newDescription"
                         value={newDescription}
@@ -131,7 +138,6 @@ export const FantasyTeamPage = () => {
                         rows={5}
                         cols={20}
                       />
-                    </p>
                     <span>
                       <Dropdown
                         value={selectedCaptain}
@@ -173,9 +179,7 @@ export const FantasyTeamPage = () => {
                     <span>
                       <p style={{ display: "inline", marginRight: "5px" }}>
                         <b>Capitán: </b>{team.captain}
-                        <div>
-                          <b> Calificación: </b>{team.rating}
-                        </div>
+                        <b> Calificación: </b>{team.rating}
                       </p>
                     </span>
                     <div className="edit-cancel-buttons">
@@ -206,7 +210,7 @@ export const FantasyTeamPage = () => {
                           <td>{player.strNumber}</td>
                           <td>
                           <i 
-                            onClick={()=>handleRemovePlayer(player.idPlayer)}
+                            onClick={()=>handleRemovePlayer(player.idPlayer, player.strPlayer)}
                             className="pi pi pi-trash delete-icon"></i>
                           </td>
                         </tr>
@@ -223,8 +227,7 @@ export const FantasyTeamPage = () => {
               <TabPanel header="Alineación" >
                 <div className="cancha-container">
                   <DndProvider backend={HTML5Backend}>
-                        <PlayersLineUp players={team.players} saveLineUp={saveLineUp} alignment={team.alignment}/>
-                      {/* <img alt="cancha" src={} className="lineup"/> */}
+                        <PlayersLineUp team={team} players={team.players} saveLineUp={saveLineUp} alignment={team.alignment}/>
                   </DndProvider>
                 </div>
               </TabPanel>

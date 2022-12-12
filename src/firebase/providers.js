@@ -9,7 +9,6 @@ export const signInWithGoogle =  async()=>{
         const result = await signInWithPopup(FirebaseAuth, googleProvider);
         const { displayName, email, photoURL, uid } =  result.user;
 
-        console.log(result.user)
         return{
             ok:true,
             //User nfo

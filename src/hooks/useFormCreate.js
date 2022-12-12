@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import { Button } from "primereact/button";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 import { startFantasyTeam } from "../store/fantasy/thunks";
 
 export const useFormCreate = () => {
@@ -10,6 +11,7 @@ export const useFormCreate = () => {
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({});
     const [cover, setCover] = useState("");
+    const navigate = useNavigate()
 
     const formik = useFormik({
         initialValues: {
@@ -46,7 +48,12 @@ export const useFormCreate = () => {
           formik.resetForm();
         },
       });
-    
+
+      const onCloseDialog = () =>{
+        navigate('/fantasy-teams')
+        setShowMessage(false)
+      }
+  
       const handleOnChangeFile = (e) => {
         const element = e.target;
         var file = element.files[0];
@@ -74,7 +81,7 @@ export const useFormCreate = () => {
             label="OK"
             className="p-button-text"
             autoFocus
-            onClick={() => setShowMessage(false)}
+            onClick={onCloseDialog}
           />
         </div>
       );

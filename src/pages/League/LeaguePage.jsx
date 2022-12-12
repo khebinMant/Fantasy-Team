@@ -25,10 +25,6 @@ export const LeaguePage = () => {
   const getTeamsByLeagueId = async() =>{
     const responseTeams =  await Promise.resolve( getTeamsByLeague(params.leagueId) );
     const responseLeague =  await Promise.resolve( getLeague(params.leagueId) );
-
-    console.log(responseTeams.teams)
-    console.log(responseLeague.leagues[0])
-
     setTeams(responseTeams.teams)
     setLeague(responseLeague.leagues[0])
     setIsLoading(false)

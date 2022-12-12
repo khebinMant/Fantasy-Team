@@ -7,7 +7,6 @@ export const loginRegisterSlice = createSlice({
     },
     reducers: {
         toggleLoginRegister: ( state ) => {
-            console.log(state.isLogin)
             state.isLogin = !state.isLogin
         },
     }
