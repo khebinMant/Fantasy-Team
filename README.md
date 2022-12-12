@@ -126,6 +126,10 @@ npm start
 
 <!-- ROADMAP -->
 
+## 💻 Live Demo
+
+Production Link: [FantasyTeam](https://fantasy-team-kruger-star-km-dl.vercel.app/)
+
 ## 🗺 Roadmap
 
 - [x] Anadir un changelog
@@ -170,7 +174,11 @@ David Lozada
 
 [![linkedin][linkedin.js]][linkedin-url] [![github][github.js]][github2-url]
 
-Project Link: [FantasyTeam](https://github.com/khebinSd/Fantasy-Team)
+Project Link:  [FantasyTeam](https://github.com/khebinSd/Fantasy-Team)
+
+Video Demostration Link: [FantasyTeam](https://drive.google.com/file/d/1zUQmosAkziGWzEeLMpu63secFKlSBXA_/view?usp=sharing)
+
+
 
 <!-- ACKNOWLEDGMENTS -->
 
