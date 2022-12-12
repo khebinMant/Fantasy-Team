@@ -40,21 +40,21 @@ export const NavBar = () => {
 
   const itemsLog = [
       {
-          label: 'Cerrar Sesión',
-          command:()=> {dispatch(startLogout());}
-      },
-      {
-          label: 'Contactanos',
-          command:()=> { navigation('/contact')}
+          label: 'Crear Equipo',
+          command:()=> {navigation('/create-fantasy')}
       },
       {
           label: 'Mis equipos',
           command:()=> {navigation('/fantasy-teams')}
       },
       {
-          label: 'Crear Equipo',
-          command:()=> {navigation('/create-fantasy')}
-      }
+        label: 'Contactanos',
+        command:()=> { navigation('/contact')}
+      },
+      {
+        label: 'Cerrar Sesión',
+        command:()=> {dispatch(startLogout());}
+      },
   ];
 
   const items = [
