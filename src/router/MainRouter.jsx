@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { LoginRegisterPage } from "../auth/pages/LoginRegisterPage";
 import { CheckingAuth } from "../components/CheckingAuth";
 import { useCheckOut } from "../hooks/useCheckout";
+import { ContactPage } from "../pages/Contact/ContactPage";
 import { CreateFantasyTeamPage } from "../pages/Create/CreateFantasyTeamPage";
 import { FantasyTeamPage } from "../pages/FantasyTeams/FantasyTeamPage";
 import { FantasyTeamsPage } from "../pages/FantasyTeams/FantasyTeamsPage";
@@ -28,6 +29,7 @@ export const MainRouter = () => {
                         <Route path='/*' element={<MainPage/>}/>
                         <Route path='/create-fantasy' element={<CreateFantasyTeamPage/>}/>
                         <Route path='/fantasy-teams' element={<FantasyTeamsPage/>}/>
+                        <Route path='/contact' element={<ContactPage/>}/>
                         <Route path='/league/:leagueId' element={<LeaguePage/>}/>
                         <Route path='/team/:teamId' element={<TeamPage/>}/>
                         <Route path='/fantasy-team/:fantasyTeamId' element={<FantasyTeamPage/>}/>

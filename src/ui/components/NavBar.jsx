@@ -41,9 +41,11 @@ export const NavBar = () => {
   const itemsLog = [
       {
           label: 'Cerrar Sesión',
-          command:()=> {
-            dispatch(startLogout());
-        }
+          command:()=> {dispatch(startLogout());}
+      },
+      {
+          label: 'Contactanos',
+          command:()=> { navigation('/contact')}
       },
       {
           label: 'Mis equipos',
