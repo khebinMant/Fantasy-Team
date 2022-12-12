@@ -193,8 +193,11 @@ Video Demostration Link: [FantasyTeam](https://drive.google.com/file/d/1zUQmosAk
 <table>
     <tbody>
         <tr>
-        <td align="center"><a href="https://github.com/khebinSd/"><img src="https://avatars.githubusercontent.com/u/33032880?v=4?s=100" width="100px;" alt="Yuval Hazaz"/><br /><sub><b>Kevin Mantilla</b></sub></a><br /><a href="https://github.com/khebinSd/" title="Code">💻</a></td>
-        <td align="center"><a href="https://github.com/DashCode47/"><img src="https://avatars.githubusercontent.com/u/91855669?v=4?s=100" width="100px;" alt="Yuval Hazaz"/><br /><sub><b>David Lozada</b></sub></a><br /><a href="https://github.com/khebinSd/" title="Code">💻</a></td>
+        <td align="center"><a href="https://github.com/khebinSd/"><img src="https://avatars.githubusercontent.com/u/33032880?v=4?s=100" width="100px;" alt="Yuval Hazaz"/><br /><sub><b>Kevin Mantilla</b></sub></a><br /><a href="https://github.com/khebinSd/" title="Code">💻 Desarrollador</a></td>
+        <td align="center"><a href="https://github.com/DashCode47/"><img src="https://avatars.githubusercontent.com/u/91855669?v=4?s=100" width="100px;" alt="Yuval Hazaz"/><br /><sub><b>David Lozada</b></sub></a><br /><a href="https://github.com/khebinSd/" title="Code">💻 Desarrollador</a></td>
+        </tr>
+        <tr>
+            <td align="center"><a href="https://github.com/Juanse7793"><img src="https://avatars.githubusercontent.com/u/96317674?v=4" width="100px;" alt="Yuval Hazaz"/><br /><sub><b>Juan Sebastian Sotomayor</b></sub></a><br /><a href="https://github.com/khebinSd/" title="Code">Tutor FrontEnd KRUGER STAR</a></td>
         </tr>
     </tbody>
 </table>
