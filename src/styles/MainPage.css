@@ -1,0 +1,187 @@
+.main-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 50px 50px;
+}
+.card-gallery-skeleton{
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+}
+
+.skeletons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 15px;
+}
+
+.players-gallery{
+    padding-top: 50px;
+    display:grid;
+    gap: 1rem;
+    grid-auto-rows: 15rem;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+    cursor: pointer;
+}  
+
+.player-card{
+    height: auto;
+    background-color: transparent;
+    cursor: pointer;
+    /* border-radius: 5px; */
+    
+}
+.card{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: all .8s ease;
+    transform-style: preserve-3d;
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+    cursor: pointer;
+}
+.card-container{
+    position: relative;
+    width:180px;
+    height: 280px;
+    background-color: transparent;
+}
+.image-card{
+    width: 100%;
+    object-fit:scale-down;
+    height: 100%;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+    cursor: pointer;
+    border-radius: 10px;
+}
+.card-container:hover .card{
+    transform: rotateY(-180deg);
+}
+
+.card-container{
+    margin: 0px 15px;
+}
+
+.back{
+    transform: rotateY(-180deg);
+    text-align: center;
+    opacity: 100%;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+    cursor: pointer;
+}
+.front, .back{
+    margin: 0px 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    backface-visibility: hidden;
+    -webkit-box-shadow: 10px 11px 17px -6px rgb(89, 94, 102);
+    -moz-box-shadow: 10px 11px 17px -6px rgb(98, 105, 116);
+    box-shadow: 10px 11px 17px -6px rgb(83, 93, 107);
+    border-style: solid;
+    border-width: 1px;
+    border-color: #343E4D;
+    transition: 1.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-image: url(../assets/cardAnim.gif);
+    background-size: 600px 100%;
+    background-position: center;
+}
+
+.products-txt{
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 17px;
+    margin: 10px 0px;
+}
+
+.avoid-link{
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+    cursor: pointer;
+}
+
+.react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
+    display: none;
+}
+    
+.react-horizontal-scrolling-menu--scroll-container {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+
+@media only screen and (max-width: 600px) {
+    .img-fix{
+        width: auto;
+        height: auto;
+    }   
+    .main-content{
+        margin-top: 160px;
+    }
+}
+

@@ -1,0 +1,193 @@
+.league-page{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 140px;
+}
+.player-card-page{
+    margin: 10px 20px;
+    height: auto;
+    background-color: transparent;
+    cursor: pointer;
+}
+.card-page{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: all .8s ease;
+    transform-style: preserve-3d;
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+}
+.card-container-page{
+    position: relative;
+    width:200px;
+    height: 300px;
+    perspective: 900px;
+    background-color: transparent;
+}
+.image-card-page{
+    width: 100%;
+    object-fit: scale-down;
+    height: 100%;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+    cursor: pointer;
+    border-radius: 10px;
+
+}
+.card-container-page:hover .card-page{
+    transform: rotateY(-180deg);
+}
+
+.card-container-page{
+    margin: 0px 15px;
+}
+
+.back-page{
+    transform: rotateY(-180deg);
+    text-align: center;
+    opacity: 100%;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+    cursor: pointer;
+}
+.front-page, .back-page{
+    margin: 0px 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    -webkit-box-shadow: 10px 11px 17px -6px rgba(52,62,77,1);
+    -moz-box-shadow: 10px 11px 17px -6px rgba(52,62,77,1);
+    box-shadow: 10px 11px 17px -6px rgba(52,62,77,1);
+    border-style: solid;
+    border-width: 1px;
+    border-color: #86EFAC;
+    transition: 1.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.products-txt-page{
+    text-align: center;
+    color: #000000;
+    font-weight: bold;
+    font-size: 17px;
+    margin: 10px 0px;
+}
+
+.team-info{
+    width:1000px;
+    height: 640px;
+    object-fit: scale-down;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #020202;
+    border-radius: 10px;
+    color: #020202;
+}
+.players-info{
+    width:1100px;
+    height: 640px;
+    object-fit: scale-down;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #020202;
+    border-radius: 10px;
+    color: #020202;
+}
+
+.info-header{
+    position: relative;
+    margin: 10px 0px;
+    gap: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.list-container{
+    margin: 0px 20px;
+    text-align: center;
+}
+.social-media{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.team-image{
+    width: 50px;
+    width: 50px;
+}
+.social-media{
+    margin-right: 40px;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    gap: 50px;
+}
+.social-media img{
+    width: 50px;
+    height: 50px;
+    object-fit: scale-down;
+}
+.league-decription p{
+    color: #343E4D;    
+}
+@media only screen and (max-width: 600px) {
+    .img-fix{
+        width: auto;
+        height: auto;
+    }   
+    .team-info{
+        margin: 0px 20px;
+        width:auto;
+        height: auto;
+    }
+    .social-media img{
+        width: 25px;
+        height: 25px;
+        object-fit: scale-down;
+    }
+    .social-media{
+        margin-right: 10px;
+        gap: 10px;
+    }
+    .league-page{
+        margin-top: 170px;
+    }
+    .info-header{
+        flex-direction: column;
+    }
+    .players-info{
+        width: auto;
+    }
+}

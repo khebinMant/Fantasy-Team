@@ -1,0 +1,170 @@
+.detatailBox{
+    background-color:transparent;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: #ffff;
+}
+
+.detatailBox::before{
+    opacity: 0.5;
+    background: rgba(0,0,0,0.7);
+}
+
+
+.dropDownRowContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.player-page{
+    display: flex;
+    height: 90vh;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.playerDetailsContainer{
+    -webkit-box-shadow: 10px 11px 17px -6px rgb(166, 171, 179);
+    -moz-box-shadow: 10px 11px 17px -6px rgb(196, 201, 209);
+    box-shadow: 10px 11px 17px -6px rgb(204, 207, 212);
+    border:2px solid #eee;
+    padding: 5px 5px;
+    width: auto;
+    height: auto;
+    border-radius: 25px;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-position: center;
+}
+
+.descriptionText{
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 150px;
+}
+
+.dropDownLock{
+    height: 30px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.dropDownUnlock{
+    height: 30px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.test{
+    margin: auto;
+}
+.ball{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+ 
+}
+
+.skills-bar{
+    color: #ffff;
+    width: 300px;
+    background-color:transparent;
+    padding: 10px 5px;
+}
+
+.skills-bar .bar{
+    margin: 20px 0;
+}
+
+.skills-bar .bar:first-child{
+    margin-top: 0;
+}
+
+.skills-bar .bar .info{
+    margin-bottom: 5px;
+}
+
+.skills-bar .bar .info span{
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.skills-bar .bar .progress-line{
+    position: relative;
+    height: 10px;
+    width: 100%;
+    background: #f0f0f0;
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.05),0px 1px rgba(255, 255, 255, 0.8);
+    border-radius:10px;
+    transform: scaleX(0);
+    animation: animate 1s cubic-bezier(1,0,0.5,1) forwards;
+    transform-origin: left;
+}
+
+.bar .progress-line span{
+    height: 100%;
+    width: 80%;
+    background: #6665ee;
+    position: absolute;
+    border-radius:10px;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes animate {
+    100%{
+        transform: scaleX(1);
+    }
+}
+
+.progress-line.height span{
+    max-width: 100%;
+}
+
+
+
+@media only screen and (max-width:600px){
+    .playerDetailsContainer{
+        margin-top: 130px;
+        flex-direction: column;
+        /* padding-top: 50px; */
+        gap: 30px;
+        padding-top: 30px;
+        width: 95%;
+    }
+    .detatailBox{
+        width: 300px;
+        
+    }
+
+    
+    .dropDown{
+        width: 130px;
+    }
+  
+    .skills-bar{
+        width: 150px;
+    }
+}
